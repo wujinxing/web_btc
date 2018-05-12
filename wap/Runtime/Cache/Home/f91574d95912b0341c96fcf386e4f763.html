@@ -1,0 +1,125 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>我的奖励</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/dropload.css" />
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+	<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head>
+<body>
+<div class="container outer" ontouchstart="">
+	<!--头部-->
+	<div class="head head_white">
+		<div class="left"><a onClick="window.history.go(-1)"><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a></div>
+		<div class="title">
+			我的奖励
+			<input type="hidden" id="market" value="<?php echo ($market); ?>" />
+			<input type="hidden" id="type" value="<?php echo ($type); ?>" />
+		</div>
+		<div class="right"></div>
+	</div>
+	<div class="main pb_0 inner" style="height:100%;" >
+		<input type="hidden" value="2" id="pageys" />
+		<div class="lm_tab_list_1">
+			<div class="mytrad_con list_1 pb_0 lists">
+			<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="wallet_box">
+					<div class="margin_lbian">
+						<div class="wallet_box1 withdraw_box1 po_re" style="height:70px;">
+							<div class="withdraw_box1_l left">
+								<p class="hui_d">下家用户名：<?php echo ($vo["invit"]); ?></p>
+								<p class="hui_d">奖励类型：<?php echo ($vo["type"]); ?>【<?php echo ($vo["name"]); ?>】</p>
+								<p class="hui_d"><?php echo (date('m-d H:i:s',$vo["addtime"])); ?></p>
+							</div>
+							<span class="right orange" style=" line-height:70px;"><?php if(($vo["status"]) == "0"): ?>未到账<?php endif; if(($vo["status"]) == "1"): ?>已到账<?php endif; ?></span>
+						</div>
+						<div class="wallet_box2 withdraw_box2">
+							<ul>
+								<li style="width:50%;"><span class="hui_d fz_3-6">操作金额：</span>￥<?php echo (NumToStr($vo['num'])); ?></li>
+								<li style="width:50%;"><span class="hui_d fz_3-6">奖励金额：</span>￥<?php echo (NumToStr($vo['fee'])); ?></li>
+								
+							</ul>
+						</div>
+					</div>
+				</div><?php endforeach; endif; else: echo "" ;endif; ?>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<script src="/wap/js/dropload/zepto.min.js"></script>
+<script src="/wap/js/dropload/dropload.min.js"></script>
+<script>
+var pageys=document.getElementById("pageys").value;
+var type=document.getElementById("type").value;
+var market=document.getElementById("market").value;
+$(function(){
+    var dropload = $('.inner').dropload({
+        domDown : {
+            domClass   : 'dropload-down',
+            domRefresh : '<div class="dropload-refresh" id="zwsj">↑上拉加载更多</div>',
+            domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
+            domNoData  : '<div class="dropload-noData">暂无数据</div>'
+        },
+        loadDownFn : function(me){
+            $.ajax({
+                type: 'GET',
+                url: "<?php echo U('getLazyjp');?>",
+				data:{"page":document.getElementById("pageys").value},
+                dataType: 'json',
+                success: function(data){
+					var result = '';
+					if(data['page']==0){
+						me.noData();
+					}else{
+						result +=data['content'];
+					}
+					document.getElementById("pageys").value=data['page'];
+					 setTimeout(function(){
+                        $('.lists').append(result);
+                        // 每次数据加载完，必须重置
+                        dropload.resetload();
+                    },1000);
+                },
+                error: function(xhr, type){
+                    //alert('信息异常，请刷新后重试!');
+                    // 即使加载出错，也得重置
+                    dropload.resetload();
+                }
+            });
+        }
+    });
+});
+</script>
+<script>
+	var market=$("#market").val();
+	$("#type-selectTest,#market-selectTest").change(function(){
+		var type=$("#type-selectTest option:selected").val();
+		
+		window.location='/Finance/mycj/type/'+type+'/market/'+market+'.html';
+	});
+	$(function () {
+		xuetong.show_tab(1);
+		setTimeout(function(){
+			$('body,html').animate({scrollTop: 0}, 0);
+		},1)
+	});
+</script>
+</body>
+</html>

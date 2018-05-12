@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>资产明细</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+	<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head>
+<body>
+<div class="container">
+	<!--头部-->
+	<div class="head head_white">
+		<div class="left"><a onClick="history.go(-1)"><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a></div>
+		<div class="title">资产明细</div>
+		<div class="right"></div>
+	</div>
+	<div class="main pb_0">
+		<div class="assets_con myassets_con">
+			<div class="margin_bian">
+				<div class="myassets_con1" style=" margin-top:18px;">账户总市值:<span>￥{$cny['zj']|NumToStr}</span></div>
+				<!--<div class="myassets_con2"><span>净资产</span></div>-->
+			</div>
+		</div>
+		<div class="myassets_list">
+			<div class="myassets_box">
+				<div class="margin_lbian">
+					<div class="borrow_box1 clear">
+						<img src="__PUBLIC__/Home/images/coin_rmb.png" width="100%" class="coin left">
+						<p class="left">人民币（CNY）</p>
+					</div>
+					<div class="borrow_box2 fz_3-9">
+						<span><em>可用：</em>￥{$cny['ky']|NumToStr}</span>
+						<span><em>冻结：</em><i class="red">￥{$cny['dj']|NumToStr}</i></span>
+					</div>
+				</div>
+			</div>
+			<volist name="coinList" id="vo">
+			
+			<div class="myassets_box">
+				<a href="/trade/index/market/{$vo['name']}_cny">
+				<div class="margin_lbian">
+					<div class="borrow_box1 clear" style="border-bottom:1px solid #f6f6f8;">
+					
+						<img src="{:C('siteurl')}__UPLOAD__/coin/{$vo['img']}" width="100%" class="coin left">
+						<p class="left">{$vo['title']}</p>
+					</div>
+					<div class="borrow_box2 fz_3-9">
+						<span><em>可用：</em>฿ {$vo['xnb']|NumToStr}</span>
+						<span><em>冻结：</em><i class="red">฿ {$vo['xnbd']|NumToStr}</i></span>
+					</div>
+				</div>
+			</a>
+			</div>
+			
+			</volist>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+		<title>微信充值</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js"></script>
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		});
+	</script>
+</head><body>
+<div class="container">
+	<!--头部-->
+	<div class="head head_white">
+		<div class="left">
+			<a onclick="history.go(-1)"><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a>
+		</div>
+		<div class="title">微信扫码充值</div>
+		<div class="right">
+		</div>
+	</div>
+			<div class="main">
+			<div class="bc_f8 zfb_prompt red">
+				<div class="margin_bian">
+					<img src="/wap/images/login_icon_tan.png" class="icon_tan"> 请使用微信转账至以下账号或扫描二维码进行转账
+				</div>
+			</div>
+			<div class="wx_con clear">
+				<div class="wx_con_img left">
+					<img src="/wap/images/wechat.jpg" class="wx_code">
+				</div>
+				<div class="left">
+					<p>1.在微信中长按左边的二维码。</p>
+				    <p>2.或长按左边二维码保存到相册;</p>
+					<p>3.然后点微信右上方的加号按钮;</p>
+					<p>4.在扫一扫保存到相册的二维码;</p>
+				</div>
+			</div>
+			<div class="zfb_nav fz_4">
+				<div class="margin_lbian">
+					<div class="zfb_box">
+						待支付金额：<span class="red">￥<?php echo ($mycz["num"]); ?></span>
+					</div>
+					<div class="zfb_box">用微信转账时在"添加留言"处填写：<span class="red"><?php echo ($mycz["tradeno"]); ?></span>
+					</div>
+					<div class="zfb_box">收款微信账号：<?php echo ($myczType["username"]); ?></div>
+					<div class="zfb_box">公司名称：<?php echo ($myczType["truename"]); ?></div>
+					<div class="zfb_box">到账时间：约30分钟</div>
+				</div>
+			</div>
+			<div class="withdraw_con hui_d border_none">
+				<p>微信转账时在"添加留言"处按要求填写订单码:<span class="red"><?php echo ($mycz["tradeno"]); ?></span></p>
+				<p>如果遇到支付问题请联系官方客服！</p>
+			</div>
+			<div class="zfb_go gfs center">
+				<p>请前往微信完成汇款</p>
+				<span>（请在48小时之内完成汇款）</span>
+			</div>
+		</div>
+	
+</div>
+
+
+</body>
+</html>

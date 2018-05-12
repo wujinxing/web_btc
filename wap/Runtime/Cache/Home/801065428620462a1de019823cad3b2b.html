@@ -1,0 +1,98 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+		<title>我的推荐</title>
+			<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+				<script type="text/javascript">
+			function() {
+					_fmOpt.imgLoaded = true;
+				};
+				var fm = document.createElement('script'); fm.type = 'text/javascript'; fm.async = true;
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fm, s);
+			})();
+		</script>
+		<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head><body>
+<div class="container">
+	<!--头部-->
+	<div class="head head_white po_re">
+		<div class="left">
+			<a href="/finance/index"  ><img src="/wap//images/login_icon_arrow2.png" class="icon_cha"></a>
+		</div>
+		<div class="title">我的推荐</div>
+		<div class="right">
+							<a href="/finance/mywd"><img src="/wap//images/icon_list.png" class="icon_list"></a>
+					</div>
+	</div>
+
+			<div class="main">
+			<div class="margin_lbian">
+				<form method="post">
+					<div class="form_box po_re findpw_tan">
+						<i class="form_icon  w_190">邀请码</i>
+						<div>
+							<div class="input_box po_re w_740"> <span><?php echo ($user['id']); ?></span></div>
+						</div>
+					</div>
+										<div class="form_box po_re findpw_tan">
+						<i class="form_icon  w_190">邀请链接</i>
+						<div>
+							<div class="input_box po_re w_740">
+                            <textarea class="input" id="foo" readonly><?php echo ($user_url); ?></textarea>
+                            	
+                            </div>
+						</div>
+					</div>
+					<div class="form_link real_point mt_04 red clear">
+						<img src="/wap//images/login_icon_tan.png" class="icon_tan left">
+						<p class="left">邀请码分享给朋友，让他们注册帐号时输入邀请码.</p>
+					</div>
+										<div class="form_link real_point mt_04 red clear">
+						<img src="/wap//images/login_icon_tan.png" class="icon_tan left">
+						<p class="left">将邀请链接本文粘贴并发送给您的好友.</p>
+					</div>
+					<div class="form_btn">
+                        <button class="btn" data-clipboard-action="copy" data-clipboard-target="#foo">复制链接</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	
+
+</div>
+<script src="/wap/js/clipboard.min.js"></script>
+<script type="text/javascript" src="/wap/js/wvke.js"></script>
+<script>
+    var clipboard = new Clipboard('.btn');
+
+    clipboard.on('success', function(e) {
+		alert('复制成功！');
+        console.log(e);
+    });
+
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
+    </script>
+
+
+</body>
+</html>

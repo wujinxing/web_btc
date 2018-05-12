@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>找回密码</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+	<script type="text/javascript" src="__PUBLIC__/layer/layer.js"></script>
+	<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head><body>
+<div class="container">
+	<div class="head head_white">
+		<div class="left">
+			<a onClick="history.go(-1)"><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a>
+		</div>
+		<div class="title">找回密码</div>
+		<div class="right"></div>
+	</div>
+	<div class="main">
+		<ul class="findpw_title clear lm_tab_1"><li class="hover list_1">手机找回</li></ul>
+		<div class="margin_lbian lm_tab_list_1">
+			<div class="list_1">
+				<form method="post" id="form-resetpw">
+					<div class="form_box po_re gfs findpw_tan"><img src="/wap/images/login_icon_tan.png" class="icon_tan"> 仅支持手机号码找回</div>
+					<div class="form_box po_re findpw_tan">
+						<i class="form_icon  w_190">用户名</i>
+						<div>
+							<div class="input_box w_740 po_re">
+								<i class="icon_username"></i>
+								<input type="text" id="username" name="username" class="input" placeholder="请输入用户名">
+							</div>
+						</div>
+					</div>
+					<div class="form_box po_re findpw_tan">
+						<i class="form_icon  w_190">手机号码</i>
+						<div>
+							<div class="input_box w_740 po_re">
+								<i class="icon_phone"></i>
+								<input type="text" id="moble" name="moble" class="input" placeholder="请输入绑定的手机号码">
+							</div>
+						</div>
+					</div>
+					<div class="form_box po_re findpw_tan">
+						<i class="form_icon  w_190">图 形 码</i>
+						<div>
+							<div class="input_box w_740 po_re">
+								<div class="formbody">
+									<i class="icon_code"></i>
+									<input type="text" class="input" id="verify" name="code" placeholder="请输入验证码" style="width: 100px;">
+									<img id="codeImg" src="{:U('Verify/code')}" width="145" height="42" onClick="this.src=this.src+'?t='+Math.random()" style="float: right; margin:-13px 0 0 0; cursor: pointer;" title="换一张">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form_box po_re findpw_yzm clear">
+					
+					
+						<input type="button" class="yzm_sms" id="regBtn" value="短信验证码" onClick="SendCode()" />
+						<a href="javascript:void(0)" class="yzm_sms_hui" id="send_sms_1" style="display: none;">59s</a>
+					</div>
+					<div class="form_box po_re findpw_tan">
+						<i class="form_icon w_190">验 证 码</i>
+						<div>
+							<div class="input_box w_740 po_re">
+								<i class="icon_code"></i>
+								<input type="text" id="moble_verify" name="code" class="input" placeholder="请输入验证码">
+							</div>
+						</div>
+					</div>
+					<div class="form_box po_re findpw_tan">
+						<i class="form_icon  w_190">新 密 码</i>
+						<div>
+							<div class="input_box w_740 po_re">
+								<i class="icon_password"></i>
+								<input type="password" id="password" name="password" class="input" placeholder="6~16个字符，区分大小写">
+							</div>
+						</div>
+					</div>
+					<div class="form_box po_re findpw_tan">
+						<i class="form_icon  w_190">确认密码</i>
+						<div>
+							<div class="input_box w_740 po_re">
+								<i class="icon_password"></i>
+								<input type="password" id="repassword" name="email" class="input" placeholder="请再次输入登录密码">
+							</div>
+						</div>
+					</div>
+					<div class="form_btn">
+						<input type="button" class="btn" name="findpw_next" id="Submin" onclick="Update()" id="findpw_next" value="找 回 登 录 密 码" />
+					</div>
+					<div class="form_link clear">
+						我还没有账户<a href="/login/register/" class="gfs">立即注册</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	function SendCode(){
+		var username=$("#username").val();
+		var moble=$("#moble").val();
+		var verify=$("#verify").val();
+		if(username==""||username==null){
+			layer.tips('请输入用户名','#username',{tips:3});
+			return false;
+		}
+		if(moble==""||moble==null){
+			layer.tips('请输入手机号码','#moble',{tips:3});
+			return false;
+		}
+		if(verify==""||verify==null){
+			layer.tips('请输入图形验证码','#verify',{tips:3});
+			return false;
+		}
+		$.post("{:U('Verify/findpwd')}",{username:username,moble:moble,verify:verify},function(data){
+			if(data.status==1){
+				$('#regBtn').attr("disabled","disabled");
+				layer.msg(data.info,{icon:1});
+				var obj=$('#regBtn');
+				var wait=120;
+				var interval=setInterval(function(){
+					obj.css('backgroundColor','#999B9C');
+					obj.val('（'+wait+'）秒后再次发送');
+					wait--;
+					if(wait<0){
+						clearInterval(interval);
+						obj.val('获取验证码');
+						$('#regBtn').removeAttr("disabled");
+						obj.css('backgroundColor','#0096e0');
+					}
+					;
+				},1000);
+			}else{
+				layer.msg(data.info,{icon:2});
+			}
+		},"json");
+	}
+	function Update(){
+		var username=$("#username").val();
+		var moble=$("#moble").val();
+		var moble_verify=$("#moble_verify").val();
+		var verify=$("#verify").val();
+		var password=$("#password").val();
+		var repassword=$("#repassword").val();
+		if(username==""||username==null){
+			layer.tips('请输入用户名','#username',{tips:3});
+			return false;
+		}
+		if(moble==""||moble==null){
+			layer.tips('请输入手机号码','#moble',{tips:3});
+			return false;
+		}
+		if(verify==""||verify==null){
+			layer.tips('请输入图形验证码','#verify',{tips:3});
+			return false;
+		}
+		if(moble_verify==""||moble_verify==null){
+			layer.tips('请输入短信验证码','#moble_verify',{tips:3});
+			return false;
+		}
+		if(password==""||password==null){
+			layer.tips('请输入新登录密码','#password',{tips:3});
+			return false;
+		}
+		if(repassword==""||repassword==null){
+			layer.tips('请输入确认登录密码','#repassword',{tips:3});
+			return false;
+		}
+		if(password!=repassword){
+			layer.tips('确认登录密码错误','#repassword',{tips:3});
+			return false;
+		}
+		$.post("{:U('Login/findpwd')}",{username:username,moble:moble,moble_verify:moble_verify,verify:verify,password:password,repassword:repassword},function(data){
+			console.log("dddddd");
+			if(data.status==1){
+				layer.msg(data.info,{icon:1});
+				window.setTimeout("window.location='{:U('Login/index')}'",1000);
+			}else{
+				layer.msg(data.info,{icon:2});
+			}
+		},"json");
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>注册{$C['web_name']}</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css" />
+	<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.flot.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.cookies.2.2.0.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/layer/layer.js"></script>
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		});
+	</script>
+</head><body>
+<div class="container">
+	<div class="head head_login">
+		<div class="left">
+			<a onclick="history.go(-1)"><img src="/wap/images/login_icon_arrow.png" class="icon_cha"></a>
+		</div>
+		<div class="title">注册成为{$C['web_name']}会员</div>
+		<div class="right">
+		</div>
+	</div>
+	<div class="main main_login">
+	
+	
+	
+	<div class="container">
+		<div class="main">
+			<div class="margin_bian">
+				<div class="real_succ center green">
+					<img src="/wap/images/icon_succ.png">
+					<p>实名认证成功！</p>
+				</div>
+				<div class="real_list">
+					<div class="real_box">
+						用户名：<span>{$user.username}</span>
+					</div>
+				
+				
+					<div class="real_box">
+						证件类型：<span>身份证</span>
+					</div>
+					<div class="real_box">
+						认证姓名：<span>{$user.truename}</span>
+					</div>
+					<div class="real_box">
+						证件号码：<span>{$user.idcard}</span>
+					</div>
+					
+					
+				<div class="form_btn">
+					<input type="button" onclick="javascript:location.href='/index.php'" class="btn" name="login" id="login" value="回首页">
+				</div>
+					
+					
+				</div>
+				<div class="form_link real_point red clear">
+					<img src="/wap/images/login_icon_tan.png" class="icon_tan left">
+					<p class="left">如需更改实名认证信息，请联系客服</p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	</div>	
+</div>
+
+
+</body>
+</html>

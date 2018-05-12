@@ -1,0 +1,241 @@
+<include file="Public:header" />
+<div class="wrapbody">
+	<div class="main">
+		<div class="myright" style="width: 1168px;margin-top: 10px;">
+			<div class="wraphtml">
+				<div class="f_title clearfix">
+					<div class="f_title_span left">
+						<span class="">
+							<a href="{:U('Bazaar/index')}">我要买入</a>
+						</span>
+						<span class="current">
+							<a href="{:U('Bazaar/mywt')}">我要卖出</a>
+						</span>
+            <!-- <span class="">
+              <i></i>
+							<a href="{:U('Bazaar/mycj')}">我的交易</a>
+						</span> -->
+						<span class="">
+							<a href="{:U('Bazaar/whole')}">全站记录</a>
+						</span>
+					</div>
+				</div>
+				<notempty name="prompt_text">
+					<div class="mytips" style="    margin: 0px;">
+						<h6 style="color: #ff8000;">温馨提示</h6>
+						{$prompt_text}
+					</div>
+				</notempty>
+
+				<div class="choosebanks" style="margin-top: 10px;">
+					<div class="methodway clearfix">
+						<div class="w_div clearfix">
+<!-- 							<div class="w1">账户余额：</div>
+							<div class="w2" style="color: #333;">
+								<img src="__PUBLIC__/Home/images/coin_rmb.png" alt="" style="width: 18px; float: left; margin-top: 8px; margin-right: 5px;"/>
+								<span>可用人民币(CNY):￥<font class="coin-balance" style="    color: #690!important;">{$user_coin['cny']|NumToStr}</font></span>
+								<apan>
+								</apan>
+							</div>
+						</div> -->
+				<div class="w1"> </div>
+				<div class="w2">　</div>
+						<div class="w_div clearfix">
+							<div class="w1">所属集市：</div>
+							<div class="w2">
+                  <select name="type" id="market" style="width: 200px; height: 38px;border-radius: 8px;">
+                      <option value="0">---选择集市---</option>
+                        <volist name="market_list" id="vo">
+                        	<option value="{$vo['id']}">{$vo['market']}</option>
+                        </volist>
+                  </select>
+							</div>
+						</div>
+						<div class="w_div clearfix">
+							<div class="w1">佣金：</div>
+							<div class="w2">
+								<span style="position: relative;" class="cc2" id="mywt_fee">
+                </span>%
+							</div>
+						</div>
+						<div class="w_div clearfix">
+							<div class="w1">委托数量：</div>
+							<div class="w2">
+								<span style="position: relative;" class="cc2">
+                    <input type="text" class="cztxinput" id="mywt_num" value="" style="border-radius: 8px;">
+                </span>
+							</div>
+						</div>
+						<div class="w_div clearfix">
+							<div class="w1">委托价格：</div>
+							<div class="w2">
+								<span style="position: relative;" class="cc2">
+                    <input type="text" class="cztxinput" id="mywt_price" value="" style="border-radius: 8px;">
+                </span>
+							</div>
+						</div>
+						<div class="w_div clearfix">
+							<div class="w1">交易密码：</div>
+							<div class="w2">
+								<span style="position: relative;" class="cc2">
+                    <input type="password" class="cztxinput" id="mywt_paypassword" value="" style="border-radius: 8px;">
+                </span><a href="{:U('/Login/findpaypwd')}" class="reg_floatr" target="_blank">忘记?</a>
+							</div>
+						</div>
+						<div class="w_div clearfix">
+							<div class="w1">&nbsp;</div>
+							<div class="w2">
+								<input type="button" class="btn-cztx" id="btn-submit" value="提交委托" title="提交委托" onclick="mywtUp()" style="border-radius: 8px;">
+								<input type="hidden" name="invit_coin" id="invit_coin" value=""/>
+							</div>
+						</div>
+					</form>
+					</div>
+
+				</div>
+
+
+				<div class="f_body">
+
+
+					<table class="f_table" id="investLog_content">
+						<thead>
+							<tr>
+								<th id="sublist-grid_c0">集市
+                <!-- <select name="type" id="coin_selectTest">
+										<volist name=":C('coin_list')" id="vo">
+										<option value="{$key}"<eq name="coin" value="$key">selected</eq>>{$vo['title']}</option>
+										</volist>
+								</select> -->
+                        <select name="type" id="market_select">
+                            <option value="{:U('Bazaar/mywt')}" <if condition="$market eq 0"> selected</if>>全部集市</option>
+                                <volist name="market_list" id="vo">
+                                    <option value="{:U('Bazaar/mywt',array('market'=>$vo['id'],'p'=>$_GET['p']))}"<if condition="$market eq $vo['id']"> selected</if>>{$vo['market']}</option>
+                                </volist>
+                        </select>
+                </th>
+								<th id="sublist-grid_c2">单价</th>
+								<th id="sublist-grid_c1">委托数量</th>
+								<th id="sublist-grid_c1">剩余数量</th>
+								<th id="sublist-grid_c3">总金额</th>
+								<th id="sublist-grid_c4">佣金比例</th>
+								<th id="sublist-grid_c4">佣金金额</th>
+								<!-- <th id="sublist-grid_c4">已到账金额</th> -->
+								<th id="sublist-grid_c4">委托时间</th>
+								<th id="sublist-grid_c4">状态</th>
+							</tr>
+						</thead>
+						<tbody>
+							<volist name="list" id="vo">
+							<tr>
+								<td><!-- {$vo['coin']} -->
+										{$marketConfig[$vo['market']]['market']}
+								</td>
+								<td>￥{$vo['price']}</td>
+								<td>฿{$vo['num']}</td>
+								<td>{$vo['num']-$vo['deal']}</td>
+								<td>￥{$vo['mum']}</td>
+								<td>{$vo['fee']}%</td>
+								<td>￥{$vo['mum']/100*$vo['fee']}</td>
+								<!-- <td>{$vo['deal']*$vo['price']}</td> -->
+								<td>{$vo['addtime']|addtime}</td>
+								<td><eq name="vo.status" value="0">交易中 |
+                    	<a class="cancel" id="{$vo.id}" href="javascript:void(0);">撤销</a></eq>
+                    <eq name="vo.status" value="1">已完成</eq> <eq name="vo.status" value="2">已撤销</eq>
+                </td>
+							</tr>
+							</volist>
+						</tbody>
+					</table>
+					<div class="pages">{$page}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+<script>
+		$(document).ready(function(){
+			$("#market").change(function() {
+				var mk = $("#market").val();
+				$.post("/Bazaar/aconfig", {
+            market: mk
+        }, function (data) {
+            if (data.status == 1) {
+                $('#mywt_min_price').html(data.price_min);
+                $('#mywt_max_price').html(data.price_max);
+                $('#mywt_min_num').html(data.num_mix);
+                $('#mywt_max_num').html(data.num_max);
+                $('#mywt_fee').html(data.fee);
+                $('#invit_coin').val(data.invit_coin);
+            }
+        }, "json");
+			})
+
+			$("#market_select").change(function() {
+				var mk = $("#market_select").val();
+					location.href = mk;
+			})
+
+		})
+
+    // $("#market_select").change(function () {
+    //     var coin = $("#market_select option:selected").val();
+    //     window.location = '/Game/bazaar_mywt/coin/' + coin + '.html';
+    // });
+
+	$('.cancel').click(function(){
+		$.post("{:U('Bazaar/mywtchexiao')}",{id:$(this).attr('id'),},function(data){
+			if(data.status==1){
+				layer.msg(data.info,{icon:1});
+				window.setTimeout("window.location.reload(true);",1000);
+			}else{
+				layer.msg(data.info,{icon:2});
+			}
+		}, "json");
+	});
+</script>
+<script>
+	function mywtUp() {
+    var market = $("#market").val();
+    var mywt_num = $("#mywt_num").val();
+    var mywt_price = $("#mywt_price").val();
+    var mywt_paypassword = $("#mywt_paypassword").val();
+    var invit_coin = $('#invit_coin').val();
+    if (market == "" || market == 0) {
+        layer.tips('请选择集市', "#market", {tips: 1});
+        return false;
+    }
+    if (mywt_num == "" || mywt_num == null) {
+        layer.tips('请输入数量', "#mywt_num", {tips: 1});
+        return false;
+    }
+    if (mywt_price == "" || mywt_price == null) {
+        layer.tips('请输入价格', "#mywt_price", {tips: 1});
+        return false;
+    }
+    if (mywt_paypassword == "" || mywt_paypassword == null) {
+        layer.tips('请输入交易密码', "#mywt_paypassword", {tips: 1});
+        return false;
+    }
+		$.post("{:U('Bazaar/mywtUp')}",{
+            market: market,
+            num: mywt_num,
+            price: mywt_price,
+            invit_coin: invit_coin,
+            paypassword: mywt_paypassword
+		},function(data){
+			if(data.status==1){
+				layer.msg(data.info,{icon:1});
+				window.setTimeout("window.location.reload(true);",1000);
+			}else{
+				layer.msg(data.info,{icon:2});
+			}
+		}, "json");
+	}
+</script>
+<script>
+    //菜单高亮
+    $('#bazaar_box').addClass('active');
+</script>
+<include file="Public:footer" />

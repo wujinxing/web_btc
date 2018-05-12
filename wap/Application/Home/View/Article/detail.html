@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{$data.title}</title>
+	<meta name="keywords" content="{$data.title}" />
+	<meta name="description" content="{$data.title}" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+		<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head><body>
+<div class="container">
+	<!--头部-->
+	<div class="head head_white">
+		<div class="left">
+							<a onclick="history.go(-1)"><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a>
+					</div>
+					<div class="title">详情</div>
+		<div class="right po_re">
+			<a href="/" class="return">返回首页</a>
+<!--			<a onclick="xuetong.show_share();"><img src="/wap/images/icon_share.png" class="icon_share"> </a>-->
+		</div>
+	</div>
+	<div class="main">
+		<div class="margin_bian">
+		<h2 class="notice_show_title">{$data.title}</h2>
+			<span class="notice_show_time fz_3-9 hui_d">发布时间:{$data.addtime|date="Y-m-d",###}</span>
+			<div class="notice_con">
+{$data['content']}
+		</div>
+	</div>
+
+<div class="index_trust">
+			<h2 class="hui_a center">安全可靠的交易平台</h2>
+			<ul class="center clear">
+				<li>
+					<img src="/wap/images/index_trust1.png" width="100%">
+					<p>系统可靠</p>
+				</li>
+				<li>
+					<img src="/wap/images/index_trust2.png" width="100%">
+					<p>资金安全</p>
+				</li>
+				<li>
+					<img src="/wap/images/index_trust3.png" width="100%">
+					<p>快捷方便</p>
+				</li>
+				<li>
+					<img src="/wap/images/index_trust4.png" width="100%">
+					<p>服务专业</p>
+				</li>
+			</ul>
+			
+		</div>
+		<div class="index_contact clear">
+
+		</div>
+		<div class="foot">
+			<span>© 2016-2017 {:C('web_title')}</span>
+		</div>
+
+</body>
+</html>
+
+</html>

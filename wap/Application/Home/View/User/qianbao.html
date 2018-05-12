@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{$dq_title}钱包地址管理</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+	<script type="text/javascript" src="__PUBLIC__/Home/js/cityselect.js"></script>
+	<script type="text/javascript">
+		user = {
+			uid: 0,rmb_over: 0,rmb_lock: 0,btc_over: 0, btc_lock: 0,eth_over: 0, eth_lock: 0,ltc_over: 0, ltc_lock: 0,doge_over: 0, doge_lock: 0,ybc_over: 0, ybc_lock: 0,email: '',name: ''
+		};
+		CoinRate = {"btc":7710,"ltc":"26.20","doge":"0.00141","ybc":"8.55","eth":"92.63"};		btvs(10,108158680);
+		timestamp = 1488158680;
+		moneyconfig = {coin:"rmb", sign:"￥"};
+	</script>
+	<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head>
+<body>
+<div class="container">
+	<!--头部-->
+	<div class="head head_white">
+		<div class="left">
+			<a href="/user/index"><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a>
+		</div>
+		<div class="title">{$xnb_title}({$xnb})<i class="jian_xia"></i>
+			<div class="trade_con_all po_ab">
+				<volist name="coin_list" id="vo" key="key"> 
+					<a href="/user/qianbao/coin/{$vo['name']}">{$vo.title} ({$vo['name']|strtoupper})</a>
+				</volist>
+			</div>
+		</div>
+		<div class="right"></div>
+	</div>
+	<div class="main pb_0">
+		<div class="margin_lbian">
+			<div class="form_box po_re findpw_tan">
+				<i class="form_icon  w_190">钱包标识</i>
+				<div>
+					<input type="text" id="qianbao_name" name="name" class="input hui_a" value="" placeholder="请输入钱包标识" />
+				</div>
+			</div>
+			<div class="form_box po_re findpw_tan">
+				<i class="form_icon  w_190">钱包地址</i>
+				<div>
+					<input type="text" id="qianbao_addr" name="name" class="input hui_a" value="" placeholder="请输入钱包地址" />
+				</div>
+			</div>
+			<div class="form_box po_re findpw_tan">
+				<i class="form_icon  w_190">交易密码</i>
+				<div>
+					<div class="input_box po_re w_740"><input type="password" id="qianbao_paypassword" name="bank_paypassword" class="input" placeholder="请输入交易密码"></div>
+				</div>
+			</div>
+			<div class="form_btn">
+				<input type="button" class="btn" onClick="Update()"  name="addbank" id="btn" value="确认添加">
+			</div>
+		</div>
+		<div class="add_bank">
+			<div class="bc_f8 hui_bg fz_4">
+				<div class="margin_bian">钱包地址（{$UserBankcount}）</div>
+				<volist name="userQianbaoList" id="vo">
+				<div class="wallet_box">
+				<div class="margin_lbian">
+					<div class="wallet_box1 withdraw_box1 po_re">
+						<div class="withdraw_box1_l left">
+							<p class="hui_d">{$vo.addr}</p>
+							<p class="hui_d">{$vo.addtime|addtime}</p>
+						</div>
+						<span class="right orange"><!--<a class="cancel" href="javascript:void(0)" onclick="UpdateB({$vo['id']})">删除</a>--></span>
+					</div>
+				</div>
+			</div>
+			</volist>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+function Update() {
+	var coin = "{$xnb}";
+	var name = $('#qianbao_name').val();
+	var addr = $('#qianbao_addr').val();
+	var paypassword = $('#qianbao_paypassword').val();
+	if (name == "" || name == null) {
+		alert('请输入钱包标识');
+		return false;
+	}
+	if (addr == "" || addr == null) {
+		alert('请输入钱包地址');
+		return false;
+	}
+	if (paypassword == "" || paypassword == null) {
+		alert('请输入交易密码');
+		return false;
+	}
+	$.post("{:U('User/upqianbao')}", {
+		coin: coin,
+		name: name,
+		addr: addr,
+		paypassword: paypassword
+	}, function (data) {
+		if (data.status == 1) {
+			alert(data.info);
+			window.location = "{:U('User/qianbao')}?coin=" + coin;
+		} else {
+			alert(data.info);
+			if (data.url) {
+				window.location = data.url;
+			}
+		}
+	}, "json");
+}
+</script>
+<script type="text/javascript">
+	coin = {name: 'btc', sign: '', id: 1};
+	BSConfig.limit = $.cookie('bslimit');
+	if(!BSConfig.limit) BSConfig.limit = 5;
+	if(BSConfig.limit==20) $('#bssetlink').html(lang('点击收起')).attr('class', 'up');
+	BSConfig.sort = 1;
+	btcsum();
+	btcorder(30);
+	opentrades();
+	getbalance()
+	$('#pricein,#priceout').before('<div class="price-warr">价格与市场价偏差过大，请慎重填写！</div>');
+
+	function getbalance(){
+		$.post('/user_index/balance',function(d){
+			$('#loan_coin').html(d['btc_loan']);
+			$('#loan_rmb').html('¥'+d['rmb_loan']);
+		},'json');
+	}
+	xuetong.title_tab();
+</script>
+</body>
+</html>

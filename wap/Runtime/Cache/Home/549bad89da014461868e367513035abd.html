@@ -1,0 +1,115 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>财务中心</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		});
+	</script>
+</head><body>
+<div class="container">
+	<!--头部-->
+	<div class="head head_white">
+		<div class="left logo">
+			<a href="/"><img src="/wap/images/logo.png"></a>
+		</div>
+		<div class="title">我的资产</div>
+		<div class="right">
+			<a href="/Finance/details/"><img src="/wap/images/icon_set.png" class="icon_set"></a>
+		</div>
+	</div>
+	<div class="main pb_0">
+		<div class="assets_con">
+			<div class="assets_con_top">
+				<div class="left po_re">
+					<img src="/wap/images/assets_img.png" class="assets_img">
+					<img src="/wap/images/assets_v.png" class="po_ab assets_v">
+				</div>
+				<div class="right fz_3-9">
+					<p>账户：<?php echo (session('userName')); ?></p>
+					<p>UID：<?php echo (session('userId')); ?></p>
+				</div>
+			</div>
+			<div class="assets_con_bottom">
+				<a href="/finance/details/" class="white">
+					<div class="assets_con_1"><span class="fz_3-6">账户总市值</span></div>
+					<div class="assets_con_2">￥<?php echo (NumToStr($cny['zj'])); ?><img src="/wap/images/login_icon_arrow.png" class="icon_arrow icon_turn180 right"> </div>
+					<div class="assets_con_3"><span>可用人民币：￥<?php echo (NumToStr($cny['ky'])); ?></span><span>冻结：￥<?php echo (NumToStr($cny['dj'])); ?></span></div>
+				</a>
+			</div>
+		</div>
+		<ul class="assets_jump clear">
+			<li class="jump_bo_r jump_bo_b"><a href="/finance/mycz/"><img src="/wap/images/user_deposit.png"><span>人民币充值</span></a></li>
+			<li class="jump_bo_b"><a href="/finance/mytx/"><img src="/wap/images/user_withdraw.png"><span>人民币提现</span></a></li>
+			<li class="jump_bo_r" style="display:none;"><a href="/finance/myzr/"><img src="/wap/images/user_turnin.png"><span>转入虚拟币</span></a></li>
+			<li style="display:none;"><a href="/finance/myzc/" ><img src="/wap/images/user_turnout.png"><span>转出虚拟币</span></a></li>
+		</ul>
+		<div class="user_nav">
+        	<div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/finance/mywt/">
+                    	<img src="/wap/images/user_icon_entrust.png" class="user_icon_nav left">
+                        <p>委托管理<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"></p>
+                    </a>
+				</div>
+			</div>
+			<div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/finance/mycj/">
+						<img src="/wap/images/user_icon_trading.png" class="user_icon_nav left">
+						<p>成交查询<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"></p>
+					</a>
+				</div>
+			</div>
+			<div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/finance/mytj/">
+						<img src="/wap/images/user_icon_red.png" class="user_icon_nav left">
+						<p>推荐用户<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"></p>
+					</a>
+				</div>
+			</div>
+						<div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/finance/mywd/">
+						<img src="/wap/images/user_icon_red.png" class="user_icon_nav left">
+						<p>我的推荐<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"></p>
+					</a>
+				</div>
+			</div>
+						<div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/finance/myjp/">
+						<img src="/wap/images/user_icon_red.png" class="user_icon_nav left">
+						<p>我的奖励<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"></p>
+					</a>
+				</div>
+			</div>
+            <div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/Article/index/id/21/">
+						<img src="/wap/images/user_icon_notice.png" class="user_icon_nav left">
+						<p>网站公告<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"></p>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="quit">
+			<a href="<?php echo U('Login/loginout');?>" class="gfs"><img src="/wap/images/icon_quit.png" class="icon_quit left">安全退出</a>
+		</div>
+	</div>
+</div>
+</body>
+</html>

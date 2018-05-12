@@ -1,0 +1,119 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>我的推荐</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<meta name="Keywords" content="<?php echo C('web_keywords');?>">
+	<meta name="Description" content="<?php echo C('web_description');?>">
+	<meta name="author" content="movesay.com">
+	<meta name="coprright" content="movesay.com">
+	<link rel="shortcut icon" href=" /favicon.ico"/>
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<style>
+	.f_table{    border:1px solid #ededed;    border-bottom:0;    width:100%;    border-collapse:collapse;    border-spacing:0;}
+	.f_table th{    background:#ededed;    font-weight:normal;    height:36px;    line-height:36px;    text-align:center;}
+	.f_table td{    padding:10px 0;    border-bottom:1px solid #ededed;    font-size:12px;    color:#707070;    text-align:center;}
+	.f_table tr:hover{    background-color:#fff5f0;}
+	.f_table tr:hover td{    background:none;}
+	.f_table2 td{    padding:12px 0;}
+	</style>
+	<script type="text/javascript" src="/Public/Home/js/jquery.min.js"></script>
+	<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head>
+<body class="container">
+	<div class="head head_white">
+		<div class="left"><a onClick="window.history.go(-1)"><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a></div>
+		<div class="title">
+			我的推荐
+			<input type="hidden" id="market" value="<?php echo ($market); ?>" />
+			<input type="hidden" id="type" value="<?php echo ($type); ?>" />
+		</div>
+		<div class="right"></div>
+	</div>
+	<div class="main pb_0">
+		<table class="f_table" id="investLog_content" style="width:100%;">
+			<thead>
+				<tr>
+					<th style="text-align: left; padding-left: 30px;">下家类型</th>
+					<th id="">用户名</th>
+					<th id="">注册时间</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$v): $mod = ($i % 2 );++$i;?><tr>
+					<td style="text-align: left; padding-left: 20px;">
+						<a href="javascript:void(0)" onclick="Address(<?php echo ($v['id']); ?>)">
+							<img class="invit_img_<?php echo ($v['id']); ?>" src="/Public/Home/images/jia.png" style="width: 18px; vertical-align: middle; margin-top: -5px;">一级下家(<?php echo ($v["invitss"]); ?>)
+						</a>
+					</td>
+					<td><?php echo ($v["username"]); ?></td>
+					<td><?php echo (addtime($v["addtime"])); ?></td>
+				</tr>
+				<?php if(!empty($v['invits'])): if(is_array($v['invits'])): $i = 0; $__LIST__ = $v['invits'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vv): $mod = ($i % 2 );++$i;?><tr class="invit_<?php echo ($v['id']); ?>" style="display: none;">
+					<td style="text-align: left; padding-left: 40px;">
+						<a href="javascript:void(0)" onclick="Address(<?php echo ($vv['id']); ?>)">
+							<img class="invita_img_<?php echo ($v['id']); ?> invit_img_<?php echo ($vv['id']); ?>" src="/Public/Home/images/jia.png" style="width: 18px; vertical-align: middle; margin-top: -5px;">二级下家(<?php echo ($vv["invitss"]); ?>)
+						</a>
+					</td>
+					<td><?php echo ($vv["username"]); ?></td>
+					<td><?php echo (addtime($vv["addtime"])); ?></td>
+				</tr>
+				<?php if(!empty($vv['invits'])): if(is_array($vv['invits'])): $i = 0; $__LIST__ = $vv['invits'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vvv): $mod = ($i % 2 );++$i;?><tr class="invita_<?php echo ($v['id']); ?> invit_<?php echo ($vv['id']); ?> " style="display: none;">
+					<td style="text-align: left; padding-left: 60px;">
+						<a href="javascript:void(0)" onclick="Address(<?php echo ($vvv['id']); ?>)">
+							<img class="invita_img_<?php echo ($v['id']); ?> invit_img_<?php echo ($vvv['id']); ?>" src="/Public/Home/images/jian.png" style="width: 18px; vertical-align: middle; margin-top: -5px;">三级下家
+						</a>
+					</td>
+					<td><?php echo ($vvv["username"]); ?></td>
+					<td><?php echo (addtime($vvv["addtime"])); ?></td>
+				</tr><?php endforeach; endif; else: echo "" ;endif; endif; endforeach; endif; else: echo "" ;endif; endif; endforeach; endif; else: echo "" ;endif; ?>
+			</tbody>
+		</table>
+	</div>
+<script>
+function Address(id){
+	var img1="/Public/Home/images/jia.png";
+	var img2="/Public/Home/images/jian.png";
+	var img=$(".invit_img_"+id).attr("src");
+	//alert(img)
+	if(img==img1){
+		$(".invit_img_"+id).attr("src",img2);
+		$(".invit_"+id).show();
+	}else{
+		$(".invit_img_"+id).attr("src",img1);
+		$(".invita_img_"+id).attr("src",img1);
+		$(".invit_"+id).hide();
+		$(".invita_"+id).hide();
+	}
+}
+
+function Addressb(id){
+	var img1="/Public/Home/images/jia.png";
+	var img2="/Public/Home/images/jian.png";
+	var img=$(".invit_img_"+id).attr("src");
+	//alert(img)
+	if(img==img1){
+		$(".invit_img_"+id).attr("src",img2);
+		
+		$(".invit_"+id).show();
+	}else{
+		$(".invit_img_"+id).attr("src",img1);
+		$(".invit_"+id).hide();
+		$(".invita_"+id).hide();
+	}
+}
+</script>

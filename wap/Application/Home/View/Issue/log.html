@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>认购记录</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	
+	<link rel="stylesheet" type="text/css" href="/wap/css/rengou.css" />
+	<link href="/wap/css/rengoustyle.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.flot.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.cookies.2.2.0.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/layer/layer.js"></script>
+	
+	
+	
+	
+</head>
+<body>
+	<header id="title"><a href="/issue/index/"><div class="back"> </div></a>认购记录</header>
+	<div style="height:43px;"></div>
+	<div class="movelist_box">
+		<div class="move">
+			<div class="orderlist_box">
+			
+			<notempty name="list">
+			
+			<volist name="list" id="vo">
+				<div class="orderlist">
+					<div class="orderlist_title"><span class="order_name">{$vo['name']}</span><span class="order_time">{$issue['time']}<a>{$vo.addtime|date='m-d H:i:s',###}</a></span></div>
+					<div class="orderlist_text">
+						<div class="border_top"></div>
+						<table width="100%">
+							<tr class="pro-dta">
+								<td style=" width:36%;"><strong>{$vo['price'] * 1}</strong> <span>认购价格</span></td>
+								<td><strong>{$vo['num'] * 1}</strong> <span>认购数量</span></td>
+								<td><strong>{$vo['mum']*1}</strong> <span>认购总价</span></td>
+								<td>
+									<strong style="color:#FF3B3B;"><eq name="vo.status" value="1"><font color="#0096dd">已完成</font><else/><font color="#23a800">解冻中</font></eq></strong>
+									<span><img src="/wap/images/yjicon.png" width="14">状态</span>
+								</td>
+							</tr>
+							<tr class="pro-dta">
+								<td><strong>{$vo.endtime|date='m-d H:i:s',###}</strong> <span>上次解冻时间</span></td>
+								<td><strong>{$vo['unlock']}/{$vo['ci']}</strong> <span>解冻次数</span></td>
+								<td><strong>{$vo['shen'] * 1}</strong> <span>剩余冻结</span></td>
+								<td>
+									<strong style="color:#FF3B3B;"><eq name="vo.status" value="0"><a class="unlock" id="qqbtc_{$vo.id}" href="javascript:void(0);" onclick="jiedong('{$vo.id}')">解冻</a><else/>--</eq></strong>
+									<span><img src="/wap/images/yjicon.png" width="14">操作</span>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				</volist>
+				
+			<else/>
+				<center>暂无数据</center>
+			</notempty>	
+				
+				
+			</div>
+		</div>
+	</div>	
+<!--底部导航-->
+	<div style="height:5.3rem;"></div>
+	<ul class="quanbu-ul1">
+		<li>
+			<div class="qu-tu1">
+				<a href="/" class="atu1"><img src="/wap/images/sjsc-15.png"></a>
+				<a href="/" class="atu2"><img src="/wap/images/sjsc-15-1.png"></a>
+			</div>
+			<a href="/" class="qu-ul1a">首页</a>
+		</li>
+		<li class="current">
+			<div class="qu-tu1">
+				<a href="/issue/log/" class="atu1"><img src="/wap/images/sjsc-17.png"></a>
+				<a href="/issue/log/" class="atu2"><img src="/wap/images/sjsc-17-1.png"></a>
+			</div>
+			<a href="/issue/log/" class="qu-ul1a">认购记录</a>
+		</li>
+		<li>
+			<div class="qu-tu1">
+				<a href="/finance/index/" class="atu1"><img src="/wap/images/sjsc-18.png"></a>
+				<a href="/finance/index/" class="atu2"><img src="/wap/images/sjsc18-1.png"></a>
+			</div>
+			<a href="/issue/index.html" class="qu-ul1a">认购中心</a>
+		</li>
+		<div style="clear:both;"></div>
+	</ul>
+	
+	
+<script language="javascript">
+	function jiedong(id){
+		alert("123");
+        if (id == "" || id == null) {
+            layer.msg('错误请求',{tips: 2});
+            return false;
+        }
+        $.post("{:U('Issue/unlock')}", {id: id}, function (data) {
+            if (data.status == 1) {
+                layer.msg(data.info, {icon: 1});
+            } else {
+                layer.msg(data.info, {icon: 2});
+            }
+        }, "json");
+		
+	}
+
+
+</script>
+		
+	
+</body>
+</html>

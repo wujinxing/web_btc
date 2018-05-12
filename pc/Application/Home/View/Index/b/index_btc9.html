@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" /> 
+  <meta name="renderer" content="webkit" /> 
+  <meta name="keywords" content="{:C('web_keywords')}" /> 
+  <meta name="description" content="{:C('web_description')}" /> 
+  <title>{:C('web_title')}</title> 
+  <link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico" /> 
+  <link rel="stylesheet" href="__PUBLIC__/qqbtc/css/bootstrap.min.css" /> 
+  <link rel="stylesheet" href="__PUBLIC__/qqbtc/css/font_uzx73rskhrdlsor.css" /> 
+  <script src="__PUBLIC__/qqbtc/js/jquery-3.1.1.min.js"></script> 
+  <script src="__PUBLIC__/qqbtc/js/bootstrap.min.js"></script> 
+  <script src="__PUBLIC__/qqbtc/js/handlebars-v3.0.3.js"></script> 
+  <script src="__PUBLIC__/qqbtc/js/layer.js"></script> 
+  <script>
+var _barr=new Array();
+_barr['jsons']="/Api/jsons.html";
+</script> 
+  <link rel="stylesheet" href="__PUBLIC__/qqbtc/css/head.css" /> 
+ </head> 
+ <body> 
+  <div class="container-full top-full"> 
+   <div class="container"> 
+    <div class="row header-top"> 
+     <div class="col-xs-6 padding-left-clear"> 
+      <span id="login_before" class="welcome">您好，欢迎来到{:C('web_name')}！ <a href="/Login/index">[登录]</a> <a href="/Reg/index" class="week-reg">[免费注册]</a></span> 
+     </div> 
+     <div class="col-xs-6 padding-right-clear"> 
+      <div class="weak-nav"> 
+       <a href="/Art/details/team_id/190.html" target="_blank" rel="nofollow" class="weak-item-a"> <span class="weak-text"><strong>关于我们</strong></span> <span class="lines-color"></span> </a> 
+       <a href="/Help/index/id/60.html" target="_blank" rel="nofollow" class="weak-item-a"> <span class="weak-text"><strong>新手引导</strong></span> <span class="lines-color"></span> </a> 
+       <a href="/Help/index/id/61.html" target="_blank" rel="nofollow" class="weak-item-a padding-right-clear"> <span class="weak-text"><strong>帮助中心</strong></span> </a> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="head_nav"> 
+   <div class="container"> 
+    <div class="row"> 
+     <div class="col-xs-12 padding-clear"> 
+      <nav class="navbar-default" role="navigation"> 
+       <div class="navbar-header"> 
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> 
+        <a href="/Index"> <img style="width:151px;" src="__UPLOAD__/public/{$C['web_logo']}" alt="{:C('web_name')}" title="{:C('web_name')}" /> </a> 
+       </div> 
+       <div class="collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-1"> 
+        <ul class="nav navbar-nav top_nav"> 
+         <li><a href="/Index/index.html">首页</a></li> 
+         <li class="dropdown" data-url="/trade"> <a href="/Index/index.html#trade_center" class="dropdown-toggle" data-toggle="dropdown"> 交易中心<strong class="caret"></strong></a> 
+          <ul class="dropdown-menu"> 
+           <li><a href="/trade/16"> <i class="deal_list_pic"><img src="picture/5812caa2a7280.png" /></i> Zcash(ZEC)</a></li>
+           <li><a href="/trade/18"> <i class="deal_list_pic"><img src="picture/58777d888e453.png" /></i> 比特币(BTC)</a></li>
+           <li><a href="/trade/3"> <i class="deal_list_pic"><img src="picture/571ef2da91b43.png" /></i> 莱特币(LTC)</a></li>
+           <li><a href="/trade/27"> <i class="deal_list_pic"><img src="picture/58d5009e0be50.png" /></i> 卡拉特(CAC)</a></li>
+           <li><a href="/trade/1"> <i class="deal_list_pic"><img src="picture/571f808d2da26.png" /></i> 蚂蚁币(ATC)</a></li>
+           <li><a href="/trade/11"> <i class="deal_list_pic"><img src="picture/5772161b16e92.png" /></i> 里约币(RIO)</a></li>
+           <li><a href="/trade/12"> <i class="deal_list_pic"><img src="picture/5775ce9b6a987.png" /></i> 链游股(LPS)</a></li>
+           <li><a href="/trade/8"> <i class="deal_list_pic"><img src="picture/573aebc2c1f43.png" /></i> 优滴币(UDB)</a></li>
+           <li><a href="/trade/4"> <i class="deal_list_pic"><img src="picture/571f458a708de.png" /></i> 雾霾币(WMC)</a></li>
+           <li><a href="/trade/21"> <i class="deal_list_pic"><img src="picture/58b679ba0587f.png" /></i> 达世币(DASH)</a></li>
+           <li><a href="/trade/20"> <i class="deal_list_pic"><img src="picture/58b6783fb26d9.png" /></i> 以太坊(ETH)</a></li>
+           <li><a href="/trade/14"> <i class="deal_list_pic"><img src="picture/57ea3604ace04.png" /></i> 小币(SMC)</a></li>
+           <li><a href="/trade/15"> <i class="deal_list_pic"><img src="picture/5813277f3dfa6.png" /></i> 算力合约(ZECS)</a></li>
+           <li><a href="/trade/13"> <i class="deal_list_pic"><img src="picture/57a82ed015d0d.png" /></i> 数字金(DGG)</a></li>
+           <li><a href="/trade/26"> <i class="deal_list_pic"><img src="picture/58d0e96ed1ad2.png" /></i> 门罗币(XMR)</a></li>
+           <li><a href="/trade/25"> <i class="deal_list_pic"><img src="picture/58d0e7e8e5442.png" /></i> AMP(AMP)</a></li>
+           <li><a href="/trade/24"> <i class="deal_list_pic"><img src="picture/58d0e53d3f4d9.png" /></i> 帕斯卡(PASC)</a></li>
+           <li><a href="/trade/23"> <i class="deal_list_pic"><img src="picture/58d0e4a113abd.png" /></i> 应用链(LSK)</a></li>
+           <li><a href="/trade/17"> <i class="deal_list_pic"><img src="picture/5840e0ee5ce2b.png" /></i> 帽子股(FEDS)</a></li>
+           <li><a href="/trade/2"> <i class="deal_list_pic"><img src="picture/571ef23042b62.png" /></i> 狗狗币(DOGE)</a></li>
+           <li><a href="/trade/9"> <i class="deal_list_pic"><img src="picture/572186e6f0a49.png" /></i> 币久股(BJC)</a></li> 
+          </ul> </li> 
+         <li data-url="/Safe"><a href="/Safe/index.html">安全中心</a></li> 
+         <li data-url="/User" class="pc-nav"><a href="/User/index.html">用户中心</a></li> 
+         <li data-url="/Newcoin"><a href="/Newcoin/index.html">新币投票</a></li> 
+         <li data-url="/Help" class="pc-nav"><a href="/Help/index/id/60.html">帮助中心</a></li> 
+        </ul> 
+        <div class="login-register clearfix"> 
+         <div class="lr-con"> 
+          <a class="btn btn-success btn-w100" href="/Login/index">登录</a> 
+          <a class="btn btn-danger btn-w100" href="/Reg/index">注册</a> 
+         </div> 
+        </div> 
+       </div> 
+      </nav> 
+     </div>
+    </div>
+   </div>
+  </div> 
+  <script>
+$(function(){var url=document.URL;$(".top_nav>li").each(function(){if(url.indexOf($(this).data('url'))>=0){$(this).addClass("current")}});$(".contact-us").hover(function(){$(".weak-contact-us").show();$(this).addClass("weak-hover-border")},function(){$(".weak-contact-us").hide();$(this).removeClass("weak-hover-border")});$(".weak-contact-us").hover(function(){$(".weak-contact-us").show();$(".contact-us").addClass("weak-hover-border")},function(){$(".weak-contact-us").hide();$(".contact-us").removeClass("weak-hover-border")})});
+</script> 
+  <link rel="stylesheet" href="__PUBLIC__/qqbtc/css/index.css" /> 
+  <script type="text/javascript" src="__PUBLIC__/qqbtc/js/jquery.flexslider-min.js"></script> 
+  <script>
+_barr['login']="/Login/checkLog.html";
+_barr['logincheck']="/Login/check.html";
+_barr['currency_list']="/Index/CurrencyList.html";
+</script> 
+  <style>
+.coin_name{width:200px;padding-right:0px;}
+</style> 
+  <div class="container-full "> 
+   <div class="container login-box"> 
+    <div class="row" style="position:relative;"> 
+     <div class="login"> 
+      <div class="login-bg"></div> 
+      <form name="loginform" id="loginform" jump-url="/User/index" method="post" action="/Login/checkLog"> 
+       <div class="login-cn"> 
+        <div class="form-group"> 
+         <h3 class="margin-top-clear login-cn-title">登录{:C('web_name')}</h3> 
+        </div> 
+        <div class="form-group"> 
+         <input style="width:100% !important;" type="text" class="form-control" id="account" name="account" placeholder="输入邮件或手机" /> 
+        </div> 
+        <div class="form-group"> 
+         <input style="width:100% !important" type="password" class="form-control" id="pwd" name="pwd" placeholder="输入密码" /> 
+        </div> 
+        <div class="form-group google hide"> 
+         <input style="width:100% !important" type="text" autocomplete="off" name="ga" class="form-control" placeholder="Google验证码" /> 
+        </div> 
+        <div class="form-group captcha hide" style="position:relative"> 
+         <input style="width:100% !important" type="text" class="form-control ident" name="captcha" placeholder="验证码" /> 
+         <a href="javacript:void(0)" onclick="$('#captchaimg').attr('src', 'picture/showverify.html?t='+Math.random())"> <img id="captchaimg" src="picture/showverify.html" style="width:120px;top:3px;" /></a> 
+        </div> 
+        <div class="form-group has-error"> 
+         <span id="indexLoginTips" class="errortips text-danger help-block"></span> 
+        </div> 
+        <div class="form-group"> 
+         <input type="button" id="loginbtn" value="登录" class="btn btn-block btn-danger" /> 
+        </div> 
+        <div class="form-group"> 
+         <a href="/Login/sendemail.html">忘记密码？</a> 
+         <a href="/Reg/index" class="pull-right">注册</a> 
+        </div> 
+       </div> 
+      </form> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="shuffling" class="carousel slide carousel-fade" data-ride="carousel"> 
+    <ol class="carousel-indicators"> 
+     <li data-target="#shuffling" data-slide-to="0" class="active"></li> 
+     <li data-target="#shuffling" data-slide-to="1"></li> 
+     <li data-target="#shuffling" data-slide-to="2"></li> 
+     <li data-target="#shuffling" data-slide-to="3"></li> 
+    </ol> 
+    <div class="carousel-inner"> 
+	
+	<volist name="indexAdver" id="vo">
+     <a target="_blank" href="#" class="item <eq name='i' value='1'> active</eq>" style="background: url('__UPLOAD__/ad/{$vo.img}') no-repeat 50% 50%;height: 480px;"></a>
+    </volist>
+
+	</div> 
+   </div> 
+  </div> 
+  <div class="main_well text-center"> 
+   <i class="iconfont">

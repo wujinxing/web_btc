@@ -1,0 +1,66 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+		<title><?php echo C('web_title');?></title>
+	<meta name="keywords" content="<?php echo C('web_keywords');?>" />
+	<meta name="description" content="<?php echo C('web_description');?>" />	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+		<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head><body>
+<div class="container">
+	<!--头部-->
+	<div class="head head_white">
+		<div class="left">
+			<a href="/" ><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a>
+		</div>
+		<div class="title">资讯中心</div>
+		<div class="right"></div>
+	</div>
+	<div class="main pb_0 po_re">
+		<div class="marget_mytrad wb_100">
+			<div class="marget_t margin_bian">
+				<a href="/Article/index/id/21" <?php if(($id) == "21"): ?>class='hover'<?php endif; ?> >官方公告</a>
+				<a href="/Article/index/id/20" <?php if(($id) == "20"): ?>class='hover'<?php endif; ?>  >数币资讯</a>
+			</div>
+		</div>
+		<div class="mytrad_con pt_165">
+		<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="wallet_box">
+				<div class="margin_lbian">
+					<div class="wallet_box1 notice_box1">
+						<a href="<?php echo U('Article/detail','id='.$vo['id']);?>">
+							<div class="left">
+								<span><?php echo ($vo["title"]); ?></span>
+
+								<p class="hui_d"><?php echo (addtime($vo["addtime"])); ?></p>
+							</div>
+							<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn180 right">
+						</a>
+					</div>
+				</div>
+			</div><?php endforeach; endif; else: echo "" ;endif; ?>		
+			
+		</div>
+		<div class="pages"><?php echo ($page); ?></div>	
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{:C('web_title')}</title>
+	<meta name="Keywords" content="{:C('web_keywords')}">
+	<meta name="Description" content="{:C('web_description')}">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+					<script type="text/javascript">
+			function() {
+					_fmOpt.imgLoaded = true;
+				};
+				var fm = document.createElement('script'); fm.type = 'text/javascript'; fm.async = true;
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fm, s);
+			})();
+		</script>
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		});
+	</script>
+</head><body>
+<div class="container">
+	<nav class="menu push">
+		<a href="#" class="backBtn"><img src="/wap/images/icon_left.png" class="icon_left right"> </a>
+		<a href="/finance/mycz.html"><img src="/wap/images/icon_nav_deposit.png" class="icon_rnav">人民币充值</a>
+		<a href="/finance/mytx.html"><img src="/wap/images/icon_nav_withdraw.png" class="icon_rnav">人民币提现</a>
+		<a href="/finance/mywt.html"><img src="/wap/images/icon_nav_entrust.png" class="icon_rnav">委托管理</a>
+		<a href="/finance/mycj.html"><img src="/wap/images/icon_nav_trad.png" class="icon_rnav">成交记录</a>
+		<a href="/finance/mytj.html"><img src="/wap/images/icon_nav_info.png" class="icon_rnav">推荐用户</a>
+		<a href="/finance/mywd.html"><img src="/wap/images/icon_nav_info.png" class="icon_rnav">我的推荐</a>
+		<a href="/finance/myjp.html"><img src="/wap/images/icon_nav_red.png" class="icon_rnav">我的奖励</a>
+		<a href="/Login/loginout.html"><img src="/wap/images/icon_safety.png" class="icon_rnav">退出</a>
+	</nav>
+	<!--头部-->
+	<div class="head head_white">
+		<div class="left logo">
+			<a href="/"><img src="wap/images/logo.png"></a>
+		</div>
+		<div class="title">首页</div>
+		<gt name="Think.session.userId" value="0">
+		<div class="right head_nav"  id="js-menu">
+			<a href="#" class="icon_nav"><img src="wap/images/icon_nav.png" width="100%"></a>
+		</div>
+		<else/>
+		<div class="right head_nav">
+			<a href="/login/" class="icon_nav"><img src="wap/images/icon_nav.png" width="100%"></a>
+		</div>
+		</gt>
+	</div>
+	<div class="foot_download po_re" id="foot_download">
+		<!--<a href="javascript:void(0);" onclick="xuetong.uaFanction();"><img src="wap/images/download.png" width="100%"></a>-->
+		<span class="po_ab" onClick="xuetong.foot_download(1)">X</span>
+	</div>
+
+	<!--首页内容-->
+	<div class="main pb_0" id="gb-main">
+	<notempty name="list">
+		<div class="banner">
+			<div class="swiper-wrapper">
+			<volist name="list" id="vo">
+				<div class="swiper-slide">
+					<a href="{$vo.url}"><img src="{:C('siteurl')}{$vo.img}"></a>
+				</div>
+				</volist>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+		<else /></notempty>
+							<div class="index_notice clear">
+				<a href="{:U('Article/detail','id='.$indexArticle[1][0]['id'])}">
+					<img src="wap/images/icon_notice.png" class="icon_notice"><div class="index_notice_con"><span>{$indexArticle[1][0]['title']}</span></div>
+				</a>
+			</div>
+				<div class="index_user">
+						<!--未登录状态-->
+						
+						<gt name="Think.session.userId" value="0">
+				<div class="index_user">
+							<div class="index_user_all">
+					<div class="index_user_con">
+						<a>帐户:{$Think.session.userName}<a/>&nbsp;&nbsp;&nbsp;&nbsp;<a class="green">UID:{$Think.session.userId}</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="red">账户总市值:￥{$cny['zj']|NumToStr}</a>
+					
+					</div>
+					<ul class="index_user_nav clear">
+						<li><a href="/finance/mycz.html">
+								<img src="wap/images/user_deposit.png">
+								<p>在线充值</p>
+							</a>
+						</li>
+						<li><a href="/finance/mytx.html">
+								<img src="wap/images/user_withdraw.png">
+								<p>在线提现</p>
+							</a>
+						</li>
+												<li><a href="/finance/">
+								<img src="wap/images/user_entrust.png?v=1">
+								<p>账户资产</p>
+							</a>
+						</li>
+												<li><a href="/User/index">
+								<img src="wap/images/user_anquan.png?v=1">
+								<p>账户安全</p>
+							</a>
+						</li>
+						
+					<li><a href="/Issue/index.html">
+					<img src="/wap/images/rengou.png">
+					<p>认购中心</p>
+					</a>
+					</li>
+						
+						
+						
+					</ul>
+				</div>
+					</div>
+				<else/>
+				<div class="index_user_login clear" >
+					<a href="/login/register.html" class="btn_login btn_register left">注册</a>
+					<a href="/login/" class="btn_login right">登录</a>
+				</div>
+				</gt>
+			<!--登陆后状态-->
+					</div>
+		<div class="index_coin">
+		<volist name="dataall" id="data" key="key">
+			<div class="index_coin_card">
+					<a href="/trade/index/market/{$dataall[$key-1][8]}">
+					<ul class="clear">
+						<li class="wb_11">
+							<img src="{:C('siteurl')}{$dataall[$key-1][9]}" width="100%" class="icon_coin">
+						</li>
+						<li class="wb_37">
+							<p class="hui_c">{$dataall[$key-1][0]}</p>
+							<span id="btc_rmb_new" class="red">￥{$dataall[$key-1][1]}</span>
+							<div class="icon_arrow icon_arrow_b" id="rate-btc"></div>
+						</li>
+
+						<li class="wb_26">
+							<p class="hui_c">成交量</p>
+							<span id="btc_sum_box" ><?=$dataall[$key-1][6]?></span>
+						</li>
+						<li class="wb_26">
+							<p class="hui_c">成交额</p>
+							<span id="deal_btc"><?=$dataall[$key-1][4]?></span>
+						</li>
+					</ul>
+					</a>
+				</div>
+                </volist>
+					</div>
+						<div class="index_info">
+			<div class="index_info_t clear hui_a">
+				<div class="margin_bian">
+					<img src="/wap/images/icon_info.png" class="icon_info left">
+					<!--<p>资讯中心<a href="/Article/index/id/{$indexArticleType[0]['id']}" class="right hui_c">更多</a></p>-->
+                    <p>资讯中心<a href="/Article/index/id/21" class="right hui_c">更多</a></p>
+				</div>
+			</div>
+			<ul class="index_info_c margin_bian">
+				<!--
+				<li><span class="hui_d">[{$indexArticle[2][0]['addtime']|date='m.d',###}]</span><a href="{:U('Article/detail','id='.$indexArticle[2][0]['id'])}">{$indexArticle[2][0]['title']}</a></li>
+				<li><span class="hui_d">[{$indexArticle[2][1]['addtime']|date='m.d',###}]</span><a href="{:U('Article/detail','id='.$indexArticle[2][1]['id'])}">{$indexArticle[2][1]['title']}</a></li>
+				-->
+				<volist name="indexArticle[0]" id="vo">
+					<li><span class="hui_d">[{$vo['addtime']|date='m.d',###}]</span><a href="{:U('Article/detail','id='.$vo['id'])}">{$vo['title']}</a></li>
+                  </volist>
+			</ul>
+
+		</div>
+		<div class="index_prompt">
+			<h2 class="hui_a center">会炒股 即会玩</h2>
+			<p class="index_prompt_jj hui_c">均通过低买高卖赚取差价获利。7*24小时交易、无涨跌幅限制，更利于投资者投资获利！</p>
+			<ul>
+				<li>
+					<img src="wap/images/index_prompt1.png" class="index_prompt_img">
+					<span>开户流程</span>
+					<i></i>
+					<p>注册登陆，即刻交易</p>
+				</li>
+				<li>
+					<img src="wap/images/index_prompt2.png" class="index_prompt_img">
+					<span>投资门槛</span>
+					<i></i>
+					<p>200元起</p>
+				</li>
+				<li>
+					<img src="wap/images/index_prompt3.png" class="index_prompt_img">
+					<span>交易提现</span>
+					<i></i>
+					<p>T+0交易，随时提现</p>
+				</li>
+				<li>
+					<img src="wap/images/index_prompt4.png" class="index_prompt_img">
+					<span>交易时间</span>
+					<i></i>
+					<p>7*24小时交易</p>
+				</li>
+				<li>
+					<img src="wap/images/index_prompt5.png" class="index_prompt_img">
+					<span>发行总量</span>
+					<i></i>
+					<p>总量恒定，持续增值</p>
+				</li>
+			</ul>
+		</div>
+				<div class="index_trust">
+			<h2 class="hui_a center">安全可靠的交易平台</h2>
+			<ul class="center clear">
+				<li>
+					<img src="wap/images/index_trust1.png" width="100%">
+					<p>系统可靠</p>
+				</li>
+				<li>
+					<img src="wap/images/index_trust2.png" width="100%">
+					<p>资金安全</p>
+				</li>
+				<li>
+					<img src="wap/images/index_trust3.png" width="100%">
+					<p>快捷方便</p>
+				</li>
+				<li>
+					<img src="wap/images/index_trust4.png" width="100%">
+					<p>服务专业</p>
+				</li>
+			</ul>
+
+		</div>
+		<div class="index_contact clear">
+			<div class="index_contact_tel">
+				<a href="tel:{:C('contact_moble')}"><img src="wap/images/icon_tel.png">{:C('contact_moble')}</a>
+			</div>
+			<div class="index_contact_qq">
+				<img src="wap/images/login_icon_sms.png">
+				</a>
+			</div>
+		</div>
+		<div class="foot">
+			<span>© 2016-2017 </span>
+			</a>
+		</div>
+	</div
+></div>
+<script type="text/javascript" src="wap/js/swiper3.1.0.min.js"></script>
+<script type="text/javascript">
+	new Swiper('.banner', {
+		pagination : '.swiper-pagination',
+		paginationClickable : true,
+		autoplay : 4500,
+		loop : true
+	});
+	var notice = $(".index_notice_con");
+	if(notice.children("span").html()){
+		if(notice.children("span").html().length>23){
+			notice.html("<marquee scrollamount=3>"+notice.children("span").html()+"</marquee>");
+		}
+	}
+	$(function () {
+		//btcorder();
+		xuetong.top_rnav();
+		xuetong.foot_download(0);
+	});
+
+	
+	
+</script>
+
+</body>
+</html>

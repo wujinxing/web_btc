@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+		<title>人民币提现记录</title>
+			<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+		<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head><body>
+<div class="container">
+	<!--头部-->
+	<div class="head head_white">
+		<div class="left">
+							<a href="/finance/mytx.html" ><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a>
+					</div>
+		<div class="title">人民币提现记录</div>
+		<div class="right">
+		</div>
+	</div>
+	<div class="main pb_0">
+		<div class="mytrad_con">
+		<notempty name="list">
+			<volist name="list" id="vo">
+			<div class="wallet_box">
+				<div class="margin_lbian">
+					<div class="wallet_box1 withdraw_box1 po_re">
+						<div class="withdraw_box1_l left">
+							<p class="hui_d">提现地址:{$vo['name']}</p>
+							<p class="hui_d">{$vo['addtime']|date='Y-m-d H:i:s',###}</p>
+						</div>
+						<span class="right orange">
+							<eq name="vo.status" value="0">
+										已申请
+										<a onclick="mytxChexiao({$vo['id']})" href="javascript:void(0)" style="    color: #2674FF!important;">撤销</a>
+									</eq>
+									<eq name="vo.status" value="1">
+										提现成功
+									</eq>
+									<eq name="vo.status" value="2">
+										已撤销
+									</eq>
+									<eq name="vo.status" value="3">
+										正在处理
+									</eq>
+						</span>
+					</div>
+					<div class="wallet_box2 withdraw_box2">
+						<ul>
+							<li><span class="hui_d fz_3-6">提现：</span>￥{$vo['num']|default="0.00"}</li>
+							<li><span class="hui_d fz_3-6">手续费：</span>￥{$vo['fee']|default="0.00"}</li>
+							<li><span class="hui_d fz_3-6">应到账：</span>￥{$vo['mum']|default="0.00"}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			</volist>
+			<div class="pages">{$page}</div>
+		<else/>
+								<div class="center record_no">暂无记录</div>
+								</notempty>
+		
+								
+				</div>
+	</div>
+	</div>
+<script>
+function mytxChexiao(id) {
+		$.post("{:U('Finance/mytxChexiao')}", {id: id}, function (data) {
+			if (data.status == 1) {
+				alert(data.info);
+				window.location.reload();
+			} else {
+			}
+		}, "json");
+	}
+
+$(function(){
+	xuetong.show_wen();
+})
+</script>
+
+
+</body>
+</html>

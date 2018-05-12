@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>手机号绑定</title>
+<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection"/>
+<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2"/>
+<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1"/>
+<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+<script src="/wap/js/index.js?v=1.7"></script>
+<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+<script type="text/javascript" src="__PUBLIC__/layer/layer.js"></script>
+<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head><body>
+<div class="container">
+ 
+<div class="head head_white">
+<div class="left">
+<a href="/user/index/"><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a>
+</div>
+<div class="title">手机号绑定</div>
+<div class="right"></div>
+</div>
+
+
+
+  <div class="main">
+  
+   <div class="margin_lbian"> 
+   
+   
+   
+<empty name="user['moble']">
+ 
+ 
+<else/>
+    <form id="form"> 
+     <div class="form_box po_re findpw_tan"> 
+      <i class="form_icon  w_230">已绑手机号</i> 
+      <div> 
+       <div class="input_box po_re left">
+		{$user.moble}
+       </div> 
+      </div> 
+     </div> 
+     <div class="form_box po_re findpw_tan"> 
+      <i class="form_icon  w_230">绑定时间</i> 
+      <div> 
+       <div class="input_box po_re left">
+		{$user.mobletime|date="Y-m-d H:i:s",###}
+       </div> 
+      </div> 
+     </div> 
+     <div class="form_box po_re findpw_tan"> 
+      <i class="form_icon  w_230">修改手机号</i> 
+      <div> 
+       <div class="input_box po_re left">
+        <input type="text" name="moble" id="moble" class="input w_430 subMoneyali" placeholder="请输入要修改的手机号" />
+       </div> 
+      </div> 
+     </div> 
+     <div class="form_box po_re findpw_yzm clear ml_230"> 
+      <input type="button" id="regBtn" onclick="SendCode_sms()" value="短信验证码" class="yzm_sms" /> 
+     </div> 
+     <div class="form_box po_re findpw_tan"> 
+      <i class="form_icon w_230">手机验证码</i> 
+      <div> 
+       <div class="input_box po_re w_740">
+        <input type="text" name="moble_verify" id="moble_verify" class="text" />
+       </div> 
+      </div> 
+     </div> 
+     <div class="form_btn"> 
+      <input type="button" class="btn" onclick="Update()" name="deposit_next" id="deposit_next" value="确认修改" /> 
+     </div> 
+    </form>
+</empty>
+
+
+	
+   </div> 
+   
+   
+  </div>
+
+
+
+
+</div>
+<script type="text/javascript">
+function SendCode_sms() {
+	var moble = $("#moble").val();
+	
+	if (moble == "" || moble == null) {
+		layer.msg('请输入手机号码', {icon: 2});
+		return false;
+	}
+	
+	$('#regBtn').attr("disabled", "disabled");
+	$.post("/Verify/sendMobileCode.html", {'moble':moble}, function (data) {
+		if (data.status == 1) {
+		    layer.msg(data.info, {icon: 1});
+			var obj = $('#regBtn');
+			var wait = 120;
+			var interval = setInterval(function () {
+				obj.css('backgroundColor', '#999B9C');
+				obj.val(wait + '秒再次发送');
+				wait--;
+				if (wait < 0) {
+					clearInterval(interval);
+					obj.val('获取验证码');
+					$('#regBtn').removeAttr("disabled");
+					obj.css('backgroundColor', '#ed4040');
+				}
+				;
+			}, 1000);
+		} else {
+		
+			layer.msg(data.info, {icon: 2});
+			$('#regBtn').removeAttr("disabled");
+			return false;
+		
+		}
+	}, "json");
+}
+function Update() {
+	var moble = $("#moble").val();
+	var moble_verify = $("#moble_verify").val();
+	if (moble == "" || moble == null) {
+		layer.msg('请输入手机号码', {icon: 2});
+		return false;
+	}
+	if (moble_verify == "" || moble_verify == null) {
+		layer.msg('请输入短信验证码', {icon: 2});
+		return false;
+	}
+	$.post("/User/upmoble.html", {
+		moble: moble,
+		moble_verify: moble_verify
+	}, function (data) {
+		if (data.status == 1) {
+
+			layer.msg(data.info, {icon: 1});
+			setTimeout(function(){
+				window.location = "/User/moble.html";
+			},3000);
+			
+		} else {
+			//刷新验证码
+			$(".reloadverify").click();
+			$("#verify").val('');
+			layer.msg(data.info, {icon: 2});
+			if (data.url) {
+				window.location = data.url;
+			}
+		}
+	}, "json");
+}
+</script>
+</body>
+</html>

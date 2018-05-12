@@ -1,0 +1,95 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>安全中心</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+	<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head>
+<body>
+<div class="container">
+	<div class="head head_white">
+		<div class="left"><a href="/" ><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a></div>
+		<div class="title">设置</div>
+		<div class="right"></div>
+	</div>
+	<div class="main pb_0">
+		<div class="user_nav">
+			<div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/user/nameauth/">
+						<img src="/wap/images/login_icon_user.png" class="user_icon_nav left">
+						<p>
+							实名认证<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right">
+							<i class="right fz_3-9 green"><img src="/wap/images/icon_succ2.png" class="icon_succ left">已认证</i>
+						</p>
+					</a>
+				</div>
+			</div>
+			<div class="user_box clear">
+				<div class="margin_lbian">
+					<a href="/user/moble/">
+						<img src="/wap/images/login_icon_tel.png" class="user_icon_nav left">
+						<p>
+							手机绑定<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right">
+							<?php if(empty($user['moble'])): ?><i class="right fz_3-9 hui_d">马上绑定</i>
+							<?php else: ?>
+								<i class="right fz_3-9 hui_d">修改绑定</i><?php endif; ?>
+						</p>
+						</a>
+					</div>
+				</div>
+				<div class="user_box clear">
+					<div class="margin_lbian">
+						<a href="/User/bank/">
+							<img src="/wap/images/user_icon_trading.png" class="user_icon_nav left">
+							<p>银行卡号<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"><i class="right fz_3-9 hui_d">添加修改</i></p>
+						</a>
+					</div>
+				</div>
+				<div class="user_box clear" style='display:none;'>
+					<div class="margin_lbian">
+						<a href="/User/qianbao/">
+							<img src="/wap/images/user_icon_entrust.png" class="user_icon_nav left">
+							<p>钱包地址<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"><i class="right fz_3-9 hui_d">添加修改</i></p>
+						</a>
+					</div>
+				</div>
+				<div class="user_box clear">
+					<div class="margin_lbian">
+						<a href="/User/password/">
+							<img src="/wap/images/login_icon_pass.png" class="user_icon_nav left">
+							<p>登录密码<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"><i class="right fz_3-9 hui_d">修改</i></p>
+						</a>
+					</div>
+				</div>
+				<div class="user_box clear">
+					<div class="margin_lbian">
+						<a href="/User/paypassword/">
+							<img src="/wap/images/login_icon_passj.png" class="user_icon_nav left">
+							<p>交易密码<img src="/wap/images/icon_jian.png" class="icon_jian icon_turn90 right"><i class="right fz_3-9 hui_d">修改</i></p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>在线充值-<?php echo ($C['web_name']); ?></title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+				<script type="text/javascript">
+			function() {
+					_fmOpt.imgLoaded = true;
+				};
+				var fm = document.createElement('script'); fm.type = 'text/javascript'; fm.async = true;
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fm, s);
+			})();
+		</script>
+		<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head><body>
+<div class="container">
+	<!--头部-->
+	<div class="head head_white">
+		<div class="left">
+			<a href="/finance/"><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a>
+		</div>
+		<div class="title">人民币充值</div>
+		<div class="right">
+			<a href="/finance/myjl.html"><img src="/wap/images/icon_list.png" class="icon_list"></a>
+		</div>
+	</div>
+	<div class="main">
+		<div class="list_tab">
+			<ul class="list_tab_con clear margin lm_tab_1">
+				<li class="list_1 list1 hover">微信充值</li>
+				<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+				<li class="list_1 list2">支付宝充值</li>
+			</ul>
+		</div>
+		<div class="margin_lbian">
+			<div class="lm_tab_list_1">
+				<div class="list_1 lm_list1">
+					<form  id="rmbin">
+						<div class="form_box po_re findpw_tan">
+							<i class="form_icon  w_190">充值金额</i>
+							<div>
+								<div class="input_box po_re"><input type="text"     id="subMoney" name="money"  class="input subMoneyali" placeholder="仅支持<?php echo ($weixinmin); ?>元以上" onkeyup="this.value=this.value.replace(/\D/g,&#39;&#39;)"></div>
+							</div>
+						</div>
+						<div class="form_money_jj">
+							<span class="red">最低200元起充值 支持微信和支付宝在线扫码充值</span>
+						</div>
+						<div class="form_box po_re findpw_tan">
+							<i class="form_icon  w_190">联系手机</i>
+							<div>
+								<div class="input_box po_re"><input type="text" id="tel" name="mo" value="<?php echo ($moble); ?>" class="input" placeholder="请输入手机号码"></div>
+							</div>
+						</div>
+						<div class="form_btn">
+							<input type="button" class="btn" name="deposit_next" id="deposit_next" value="下一步" onclick="CreatRmbinOrder('weixin');">
+						</div>
+												<div class="form_money_jj">
+							<span class="red"><img src="/wap/images/login_icon_tan.png" class="icon_tan">在线充值15-20分钟内到账</span>
+						</div>
+					</form>
+				</div>
+				<input type='hidden' value="<?php echo ($weixinmin); ?>" id='weixinmin' />
+				<input type='hidden' value="<?php echo ($alipaymin); ?>" id='alipaymin' />
+				<div class="list_1 lm_list2" style="display:none;">
+					<form id="rmbin1">
+						<input type="hidden" name="bank" value="支付宝">
+						<input type="hidden" id="aliid" name="aliid" value="22865">
+						<div class="form_box po_re findpw_tan">
+							<i class="form_icon  w_190">充值金额</i>
+							<div>
+								<div class="input_box po_re"><input type="text"  id="subMoney1" class="input subMoneyali" placeholder="仅支持<?php echo ($alipaymin); ?>元以上" onkeyup="this.value=this.value.replace(/\D/g,&#39;&#39;)"></div>
+							</div>
+						</div>
+						<div class="form_money_jj">
+							<span class="red">最低200元起充值 支持微信和支付宝在线扫码充值</span>
+						</div>
+						<div class="form_box po_re findpw_tan">
+							<i class="form_icon  w_190">联系手机</i>
+							<div>
+								<div class="input_box po_re"><input type="text" id="tel2" name="mo"  value="<?php echo ($moble); ?>" class="input" placeholder="请输入手机号码"></div>
+							</div>
+						</div>
+						<div class="form_btn">
+							<input type="button" class="btn" name="deposit_next" id="deposit_next" value="下一步" onclick="CreatRmbinOrder('alipay');">
+						</div>
+																		<div class="form_money_jj">
+							<span class="red"><img src="/wap/images/login_icon_tan.png" class="icon_tan">在线充值15-20分钟内到账</span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<script type="text/javascript">
+	function random() {
+		var count = Math.floor(Math.random() * (99 - 10 + 1) + 10);
+		$('.random').html('.' + count);
+	}
+	function subMoneyKeyUp(obj,event) {
+		event = event ? event : window.event;
+		if(typeof event !='undefined' && (event.keyCode == 37 || event.keyCode == 39)){
+			return;
+		}
+		obj.value=obj.value.replace(/\D/g,'');
+		var cnyTotal = parseFloat(obj.value+$(".random").html());
+	}
+	$(function(){
+		random();
+		if (window.location.hash == '#tal') {
+			$(".lm_tab_1 .list1").removeClass("hover");
+			$(".lm_tab_1 .list2").addClass("hover");
+			$(".lm_tab_list_1 .lm_list1").css('display','none');
+			$(".lm_tab_list_1 .lm_list2").css('display','block');
+		}
+	})
+	xuetong.show_tab(1);
+	function CreatRmbinOrder(type) {
+		var num=0;
+		if(type=='weixin'){
+			var weixinmin=parseInt($("#weixinmin").val());
+			var subMoney = parseInt($("#subMoney").val());
+			if($('#subMoney').val() < weixinmin){
+				$('#subMoney').val(weixinmin);
+				alert('充值金额不能小于'+weixinmin);
+				return;
+			}
+			var num=subMoney;
+		}else if(type=='alipay'){
+			var alipaymin=parseInt($("#alipaymin").val());
+			var subMoney1 = parseInt($("#subMoney1").val());
+			if($('#subMoney1').val() < alipaymin ){
+				$('#subMoney1').val(alipaymin);
+				alert('充值金额不能小于'+alipaymin);
+				return;
+			}
+			var num=subMoney1;
+		}
+		$.post("<?php echo U('Finance/myczUp');?>", {
+			type: type,
+			num: num
+		}, function (data) {
+			if (data.status == 1) {
+				window.location.href = "<?php echo U('Pay/mycz');?>?id=" + data.url.id;
+			} else {
+				alert('系统异常，请重新操作！');
+			}
+		}, "json");
+	}
+</script>
+
+
+</body>
+</html>

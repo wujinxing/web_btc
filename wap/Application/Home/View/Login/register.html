@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <title>用户注册-{$C['web_name']}</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css" />
+	<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.flot.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.cookies.2.2.0.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/layer/layer.js"></script>
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		});
+	</script>
+</head><body>
+<div class="container">
+	<div class="head head_login">
+		<div class="left">
+			<a onclick="history.go(-1)"><img src="/wap/images/login_icon_arrow.png" class="icon_cha"></a>
+		</div>
+		<div class="title">注册成为{$C['web_name']}会员</div>
+		<div class="right">
+		<a href="/login/index.html">登录</a>
+		</div>
+	</div>
+	<div class="main main_login">
+		<div class="login">
+			<form id="form" method="post">
+								<div class="form_box po_re">
+					<i class="form_icon po_ab"><img src="/wap/images/login_icon_user.png"></i>
+					<div>
+						<div class="input_box w_900 po_re"><input type="text" id="username" onblur="regusername()" name="username"  class="input" placeholder="6-18个字符,需以字母开头"></div>
+					</div>
+									</div>
+				<div class="form_box po_re">
+					<i class="form_icon po_ab"><img src="/wap/images/login_icon_tel.png"></i>
+					<div>
+						<div class="input_box w_900 po_re"><input type="text" id="moble"  name="moble" onblur="regusername()" class="input" placeholder="输入手机号码"></div>
+					</div>
+									</div>
+													<div class="form_box po_re">
+					<i class="form_icon po_ab"><img src="/wap/images/login_icon_sms.png"></i>
+					<div>
+						<div class="input_box w_700 po_re"><input type="text" id="verify" name="verify" onblur="regverify()" class="input" placeholder="输入右侧数字验证码"></div>
+					</div>
+					                    <span class="code_box right">
+                        <img id="codeImg" src="{:U('Verify/code')}"  onclick="this.src=this.src+'?t='+Math.random()" style="float: left; cursor: pointer;" title="换一张" class="gfs code_input">
+                    </span>
+									</div>
+				<div class="form_box po_re">
+					<i class="form_icon po_ab"><img src="/wap/images/login_icon_sms.png"></i>
+					<div>
+						<div class="input_box w_700 po_re"><input type="text" id="moble_verify" name="moble_verify" class="input" placeholder="输入短信验证码"></div>
+					</div>
+					                    <span class="code_box right" style=" margin-top:-0.8rem; ">
+                        <input id="regBtn"  type="button" value="获取短信码"  onclick="SendCode()"  class="gfs code_input" >
+                    </span>
+									</div>
+				<div class="form_link clear">
+                        <a href="javascript:void(0)" class="gfs" id="send_voice_1" style="display: none;">59s</a>
+                    </span>
+				</div>
+				<div class="form_box form_eye po_re">
+					<i class="form_icon po_ab"><img src="/wap/images/login_icon_pass.png"></i>
+					<div class="w_900 pass-box">
+						<input name="password" to_empty="1" id="password" class="input mima_dd " onblur="regpassword()" onfocus="this.type='password'" placeholder="请设置登录密码" >
+                        <i class="eyes_box icon_eye right"></i>
+					</div>
+				</div>
+				<div class="form_box form_eye po_re">
+					<i class="form_icon po_ab"><img src="/wap/images/login_icon_pass.png"></i>
+					<div class="w_900 pass-box">
+						<input name="repassword" to_empty="1" id="repassword" type="password" class="input mima_dd " onblur="regrepassword()" placeholder="请设置重复登录密码" >
+                        <i class="eyes_box icon_eye right"></i>
+					</div>
+				</div>
+
+				<div class="form_box po_re">
+					<i class="form_icon po_ab"><img src="/wap/images/login_icon_yqm.png"></i>
+					<div>
+						<div class="input_box w_700 po_re"><input type="text" id="invit" name="invite" value="{$Think.session.invit}" class="input" placeholder="没有邀请码可以不填写"></div>
+					</div>
+										</div>
+													<div class="form_link clear">
+									</div>
+								<div class="form_btn">
+					<input type="button" class="btn" name="index_submit" id="loginSubmin" onclick="Update();" value="注册">
+				</div>
+				<div class="form_link clear">
+					<span class="gfs"><img src="/wap/images/login_icon_select.png" class="icon_select"><a href="javascript:void(0)" onclick="registerAgreement();">注册即同意本服务条款及用户协议</a></span>
+				</div>
+				<input type="hidden" name="invite_id" value="">
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+
+var ele_pass_box = document.getElementsByTagName("div")[20];
+                                    var ele_pass = ele_pass_box.getElementsByTagName("input")[0];
+                                    var ele_eye = ele_pass_box.getElementsByTagName("i")[1];
+                                    ele_eye.onclick = function () {
+                                    var state = this.getAttribute("state");
+                                            if (state === "on") {
+                                    ele_pass.setAttribute("type", "password");
+                                            ele_eye.setAttribute("state", "off");
+                                            ele_eye.setAttribute("class", "eyes_box icon_eye right");
+                                            } else {
+												ele_pass.setAttribute("type", "text");
+                                            ele_eye.setAttribute("state", "on");
+											ele_eye.setAttribute("class", "eyes_box icon_eye open right");
+                                            }
+                                    }
+                                    
+                                     var ele_pass_box2 = document.getElementsByTagName("div")[22];
+                                    var ele_pass2 = ele_pass_box2.getElementsByTagName("input")[0];
+                                    var ele_eye2 = ele_pass_box2.getElementsByTagName("i")[1];
+                                    ele_eye2.onclick = function () {
+                                    var state2 = this.getAttribute("state2");
+                                            if (state2 === "on") {
+                                    ele_pass2.setAttribute("type", "password");
+                                            ele_eye2.setAttribute("state2", "off");
+                                            ele_eye2.setAttribute("class", "eyes_box icon_eye right");
+                                            } else {
+												ele_pass2.setAttribute("type", "text");
+                                            ele_eye2.setAttribute("state2", "on");
+											ele_eye2.setAttribute("class", "eyes_box icon_eye open right");
+                                            }
+                                    }
+
+
+
+	function fleshVerify() {
+		//重载验证码
+		var time = new Date().getTime();
+		document.getElementById('codeImg').src= "{:U('Verify/code')}"+'/'+'?t='+Math.random();
+	}
+
+	function SendCode() {
+        var moble = $("#moble").val();
+        var verify = $("#verify").val();
+        if (moble == "" || moble == null) {
+            layer.tips('请输入手机号码', '#moble', {tips: 3});
+            return false;
+        }
+        if (verify == "" || verify == null) {
+            layer.tips('请输入图形验证码', '#verify', {tips: 3});
+            return false;
+        }
+        $.post("{:U('Login/real')}", {
+            moble: moble,
+            verify: verify
+        }, function (data) {
+            if (data.status == 1) {
+                //刷新验证码
+                <!-- $(".reloadverify").click(); -->
+                $("#verify").val('');
+				fleshVerify();
+                $('#regBtn').attr("disabled", "disabled");
+                layer.msg(data.info, {icon: 1});
+                var obj = $('#regBtn');
+                var wait = 60;
+                var interval = setInterval(function () {
+                    obj.css('backgroundColor', '#999B9C');
+                    obj.val(wait + '秒再次发送');
+                    wait--;
+                    if (wait < 0) {
+                        clearInterval(interval);
+                        obj.val('获取验证码');
+						$('#regBtn').removeAttr("disabled");
+                        obj.css('backgroundColor', '#ed4040');
+                    }
+                    ;
+                }, 1000);
+            } else {
+                //刷新验证码
+                <!-- $(".reloadverify").click(); -->
+				fleshVerify();
+                $("#verify").val('');
+				
+                layer.msg(data.info, {icon: 2});
+                if (data.url) {
+                    window.location = data.url;
+                }
+            }
+        }, "json");
+    }
+	
+	function registerAgreement(){
+		layer.open({
+			type:2,
+			skin:'layui-layer-rim', //加上边框
+			area:['800px','600px'], //宽高
+			title:'注册协议', //不显示标题
+			content:"{:U('Login/webreg')}"
+		});
+	}
+
+
+	<!-- $('input').focus(function(){ -->
+		<!-- var t=$(this); -->
+		<!-- if(t.attr('type')=='text'||t.attr('type')=='password') -->
+			<!-- t.css({'box-shadow':'0px 0px 3px #1583fb','border':'1px solid #1583fb','color':'#333' }); -->
+		<!-- if(t.val()==t.attr('placeholder')) -->
+			<!-- t.val(''); -->
+	<!-- }); -->
+	<!-- $('input').blur(function(){ -->
+		<!-- var t=$(this); -->
+		<!-- if(t.attr('type')=='text'||t.attr('type')=='password') -->
+			<!-- t.css({'box-shadow':'none','border':'1px solid #e1e1e1','color':'#333' }); -->
+		<!-- if(t.attr('type')!='password'&&!t.val()) -->
+			<!-- t.val(t.attr('placeholder')); -->
+	<!-- }); -->
+	<!-- $('.reg_input_box input').each(function(i,d){ -->
+		<!-- $(d).focus(function(){ -->
+			<!-- var oRegMsg=$('#'+$(this).attr('id')+'-msg'); -->
+			<!-- oRegMsg.attr('class')=='form_explain_error'?oRegMsg.attr('class','form_explain').html(oRegMsg.attr('data-explain')).show():oRegMsg.show(); -->
+		<!-- }) -->
+		<!-- $(d).blur(function(){ -->
+			<!-- var oRegMsg=$('#'+$(this).attr('id')+'-msg'); -->
+			<!-- $(this).parent().find('.form_explain').hide(); -->
+		<!-- }) -->
+	<!-- }) -->
+	<!-- var mbTest_username=/^(?![^a-zA-Z]+$)(?!\D+$).{5,15}$/; -->
+	<!-- var mbTest_password=/^[a-zA-Z0-9_]{5,15}$/; -->
+	//输入框消息
+	function formMsg(o, status, msg){
+		$('#'+o+'-msg').attr('class', 'form_explain_'+(status?'pass':'error')).html((typeof msg == 'undefined'? '': msg)+'<em></em>').show();
+		return true;
+	}
+	function regusername(){
+		var username = $('#username').val();
+		if(username==""||username==null){
+			<!-- formMsg('username', 0, '请输入用户名'); -->
+			layer.tips('请输入用户名','#username',{tips:3});
+			return false;
+		}
+		$.post("{:U('Login/chkUser')}",{username:username},function(ret){
+			if(ret.status){
+				<!-- formMsg('username', 1); -->
+				return true;
+			}else{
+				<!-- formMsg('username', 0, ret.info); -->
+				layer.tips(ret.info,'#username',{tips:3});
+				return false;
+			}
+		},'json');
+	}
+	function regverify(){
+		var verify = $('#verify').val();
+		if(verify==""||verify==null){
+			<!-- formMsg('verify', 0, '请输入验证码'); -->
+			layer.tips('请输入验证码','#verify',{tips:3});
+			return false;
+		}else{
+			<!-- formMsg('verify', 1); -->
+			return true;
+		}
+	}
+
+	function regpassword(){
+		var password = $('#password').val();
+		if(password==""||password==null){
+			<!-- formMsg('password', 0, '请输入登录密码'); -->
+			layer.tips('请输入登录密码','#password',{tips:3});
+			return false;
+		}else{
+			if(!mbTest_password.test(password)){
+				<!-- formMsg('password', 0, '登录密码格式错误 (6~16个字符)'); -->
+				layer.tips('登录密码格式错误 (6~16个字符)','#password',{tips:3});
+				return false;
+			}else{
+				<!-- formMsg('password', 1); -->
+				return true;
+			}
+		}
+	}
+	
+	function regrepassword(){
+		var password = $('#password').val();
+		var repassword = $('#repassword').val();
+		if(repassword==""||repassword==null){
+			<!-- formMsg('repassword', 0, '请输入确认密码'); -->
+			layer.tips('请输入确认密码','#repassword',{tips:3});
+			return false;
+		}else{
+			if(!mbTest_password.test(repassword)){
+				<!-- formMsg('repassword', 0, '登录密码格式错误 (6~16个字符)'); -->
+				layer.tips('登录密码格式错误 (6~16个字符)','#repassword',{tips:3});
+				return false;
+			}else{
+				if(password!=repassword){
+					<!-- formMsg('repassword', 0, '确认登录错误'); -->
+					layer.tips('确认登录错误','#repassword',{tips:3});
+					return false;
+				}else{
+					<!-- formMsg('repassword', 1); -->
+					return true;
+				}
+			}
+		}
+	}
+	
+
+	function Update(){
+		var username=$("#username").val();
+		var password=$("#password").val();
+		var repassword=$("#repassword").val();
+		var invit=$("#invit").val();
+		var verify=$("#verify").val();
+		var moble=$("#moble").val();
+		var moble_verify=$("#moble_verify").val();
+		if(username==""||username==null){
+			layer.tips('请输入用户名','#username',{tips:3});
+			return false;
+		}
+		if(password==""||password==null){
+			<!-- formMsg('password', 0, '请输入登录密码'); -->
+			layer.tips('请输入登录密码','#password',{tips:3});
+			return false;
+		}
+		if(repassword==""||repassword==null){
+			<!-- formMsg('repassword', 0, '请输入确认密码'); -->
+			layer.tips('请输入确认密码','#repassword',{tips:3});
+			return false;
+		}
+		if(password!=repassword){
+			<!-- formMsg('repassword', 0, '确认密码错误'); -->
+			layer.tips('确认密码错误','#repassword',{tips:3});
+			return false;
+		}
+		
+		if(verify==""||verify==null){
+			<!-- formMsg('verify', 0, '请输入验证码'); -->
+			layer.tips('请输入验证码','#verify',{tips:3});
+			return false;
+		}
+		
+		if(moble==""||moble==null){
+			<!-- formMsg('moble', 0, '请输入手机号码'); -->
+			layer.tips('请输入手机号码','#moble',{tips:3});
+			return false;
+		}
+		if(moble_verify==""||moble_verify==null){
+			<!-- formMsg('moble_verify', 0, '请输入短信验证码'); -->
+			layer.tips('请输入短信验证码','#moble_verify',{tips:3});
+			return false;
+		}
+		$.post("{:U('Login/upregister')}",{username:username,password:password,repassword:repassword,invit:invit,verify:verify,moble:moble,moble_verify:moble_verify},function(data){
+			if(data.status==1){
+				layer.msg(data.info,{icon:1});
+				$.cookies.set('cookie_username',username);
+				window.location='/Login/register2';
+			}else{
+				layer.msg(data.info,{icon:2});
+				if(data.url){
+					window.location=data.url;
+				}
+			}
+		},"json");
+	}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<include file="Public:header" />
+<div class="wrapper">
+	<div class="register" style="border-radius: 15px; margin-bottom: 20px;">
+		<table>
+			<tbody>
+				<tr>
+					<th align="right">用户名：</th>
+					<td><div class="formbody" style="width: 250px;">
+							<i class="icon_username"></i>
+							<input type="text" class="username" id="username" name="username" placeholder="请输入用户名">
+						</div></td>
+				</tr>
+				<tr>
+					<th align="right">安全手机：</th>
+					<td><div class="formbody" style="width: 250px;">
+							<i class="icon_phone"></i>
+							<input type="text" class="username" id="moble" name="moble" placeholder="请输入绑定的手机号码">
+						</div></td>
+				</tr>
+				<tr>
+					<th align="right">图形验证码：</th>
+					<td><div class="formbody">
+							<i class="icon_code"></i>
+							<input type="text" class="code" id="verify" name="code" placeholder="请输入验证码" style="width: 100px;"><img id="codeImg" src="{:U('Verify/code')}" width="145" height="42" onclick="this.src=this.src+'?t='+Math.random()" style="float: left; cursor: pointer;" title="换一张">
+						</div></td>
+				</tr>
+				<tr>
+					<th align="right">短信验证码：</th>
+					<td><div class="formbody">
+							<i class="icon_code"></i>
+							<input type="text" class="code" id="moble_verify" name="code" placeholder="请输入验证码" style="width: 100px;"><input id="regBtn" type="button" class="getyzm" value="获取验证码" onclick="SendCode()" style="width: 145px; height: 42px;">
+						</div></td>
+				</tr>
+				<tr>
+					<th align="right">新登录密码：</th>
+					<td><div class="formbody" style="width: 250px;">
+							<i class="icon_password"></i>
+							<input type="password" class="password" id="password" name="password" placeholder="6~16个字符，区分大小写">
+						</div></td>
+				</tr>
+				<tr>
+					<th align="right">确认登录密码：</th>
+					<td><div class="formbody" style="width: 250px;">
+							<i class="icon_password"></i>
+							<input type="password" class="password" id="repassword" name="password" placeholder="请再次输入登录密码">
+						</div></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><div class="formbody">
+							<input type="button" class="movesay_btn" name="index_submit" id="Submin" onclick="Update();" value="找 回 登 录 密 码" title="找 回 登 录 密 码" style="width: 320px;">
+						</div></td>
+					<td>&nbsp;</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="autobox" style="margin-bottom: 30px">
+		<ul class="safety_tips_ul clear">
+			<li>
+				<div class="safety_img safety_img_1"></div>
+				<h4>系统可靠</h4>
+				<p>银行级用户数据加密、动态身份验证，多级风险识别控制，保障交易安全</p>
+			</li>
+			<li>
+				<div class="safety_img safety_img_2"></div>
+				<h4>资金安全</h4>
+				<p>钱包多层加密，离线存储于银行保险柜，资金第三方托管，确保安全</p>
+			</li>
+			<li>
+				<div class="safety_img safety_img_3"></div>
+				<h4>快捷方便</h4>
+				<p>充值即时、提现迅速，每秒万单的高性能交易引擎，保证一切快捷方便</p>
+			</li>
+			<li>
+				<div class="safety_img safety_img_4"></div>
+				<h4>服务专业</h4>
+				<p>专业的客服团队，400电话和24小时在线QQ，VIP一对一专业服务</p>
+			</li>
+		</ul>
+	</div>
+</div>
+<script>
+	function SendCode(){
+		var username=$("#username").val();
+		var moble=$("#moble").val();
+		var verify=$("#verify").val();
+		if(username==""||username==null){
+			layer.tips('请输入用户名','#username',{tips:3});
+			return false;
+		}
+		if(moble==""||moble==null){
+			layer.tips('请输入手机号码','#moble',{tips:3});
+			return false;
+		}
+		if(verify==""||verify==null){
+			layer.tips('请输入图形验证码','#verify',{tips:3});
+			return false;
+		}
+
+
+		$.post("{:U('Verify/findpwd')}",{username:username,moble:moble,verify:verify},function(data){
+			if(data.status==1){
+				$('#regBtn').attr("disabled","disabled");
+				layer.msg(data.info,{icon:1});
+				var obj=$('#regBtn');
+				var wait=120;
+				var interval=setInterval(function(){
+					obj.css('backgroundColor','#999B9C');
+					obj.val('（'+wait+'）秒后再次发送');
+					wait--;
+					if(wait<0){
+						clearInterval(interval);
+						obj.val('获取验证码');
+						obj.css('backgroundColor','#0096e0');
+					}
+					;
+				},1000);
+			}else{
+				layer.msg(data.info,{icon:2});
+			}
+		},"json");
+	}
+	function Update(){
+		var username=$("#username").val();
+		var moble=$("#moble").val();
+		var moble_verify=$("#moble_verify").val();
+		var verify=$("#verify").val();
+		var password=$("#password").val();
+		var repassword=$("#repassword").val();
+		if(username==""||username==null){
+			layer.tips('请输入用户名','#username',{tips:3});
+			return false;
+		}
+		if(moble==""||moble==null){
+			layer.tips('请输入手机号码','#moble',{tips:3});
+			return false;
+		}
+		if(moble_verify==""||moble_verify==null){
+			layer.tips('请输入短信验证码','#moble_verify',{tips:3});
+			return false;
+		}
+		if(verify==""||verify==null){
+			layer.tips('请输入图形验证码','#verify',{tips:3});
+			return false;
+		}
+		if(password==""||password==null){
+			layer.tips('请输入新登录密码','#password',{tips:3});
+			return false;
+		}
+		if(repassword==""||repassword==null){
+			layer.tips('请输入确认登录密码','#repassword',{tips:3});
+			return false;
+		}
+		if(password!=repassword){
+			layer.tips('确认登录密码错误','#repassword',{tips:3});
+			return false;
+		}
+		$.post("{:U('Login/findpwd')}",{username:username,moble:moble,moble_verify:moble_verify,verify:verify,password:password,repassword:repassword},function(data){
+			if(data.status==1){
+				layer.msg(data.info,{icon:1});
+				window.setTimeout("window.location='{:U('Login/index')}'",1000);
+			}else{
+				layer.msg(data.info,{icon:2});
+			}
+		},"json");
+	}
+</script>
+<script>
+	//顶部菜单高亮
+	$('#menu_top_index').addClass('current');
+</script>
+<include file="Public:footer" />

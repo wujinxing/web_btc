@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>我的推荐</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<meta name="Keywords" content="{:C('web_keywords')}">
+	<meta name="Description" content="{:C('web_description')}">
+	<meta name="author" content="movesay.com">
+	<meta name="coprright" content="movesay.com">
+	<link rel="shortcut icon" href=" /favicon.ico"/>
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<style>
+	.f_table{    border:1px solid #ededed;    border-bottom:0;    width:100%;    border-collapse:collapse;    border-spacing:0;}
+	.f_table th{    background:#ededed;    font-weight:normal;    height:36px;    line-height:36px;    text-align:center;}
+	.f_table td{    padding:10px 0;    border-bottom:1px solid #ededed;    font-size:12px;    color:#707070;    text-align:center;}
+	.f_table tr:hover{    background-color:#fff5f0;}
+	.f_table tr:hover td{    background:none;}
+	.f_table2 td{    padding:12px 0;}
+	</style>
+	<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head>
+<body class="container">
+	<div class="head head_white">
+		<div class="left"><a onClick="window.history.go(-1)"><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a></div>
+		<div class="title">
+			我的推荐
+			<input type="hidden" id="market" value="{$market}" />
+			<input type="hidden" id="type" value="{$type}" />
+		</div>
+		<div class="right"></div>
+	</div>
+	<div class="main pb_0">
+		<table class="f_table" id="investLog_content" style="width:100%;">
+			<thead>
+				<tr>
+					<th style="text-align: left; padding-left: 30px;">下家类型</th>
+					<th id="">用户名</th>
+					<th id="">注册时间</th>
+				</tr>
+			</thead>
+			<tbody>
+				<volist name="list" id="v">
+				<tr>
+					<td style="text-align: left; padding-left: 20px;">
+						<a href="javascript:void(0)" onclick="Address({$v['id']})">
+							<img class="invit_img_{$v['id']}" src="__PUBLIC__/Home/images/jia.png" style="width: 18px; vertical-align: middle; margin-top: -5px;">一级下家({$v.invitss})
+						</a>
+					</td>
+					<td>{$v.username}</td>
+					<td>{$v.addtime|addtime}</td>
+				</tr>
+				<notempty name="v['invits']">
+				<volist name="v['invits']" id="vv">
+				<tr class="invit_{$v['id']}" style="display: none;">
+					<td style="text-align: left; padding-left: 40px;">
+						<a href="javascript:void(0)" onclick="Address({$vv['id']})">
+							<img class="invita_img_{$v['id']} invit_img_{$vv['id']}" src="__PUBLIC__/Home/images/jia.png" style="width: 18px; vertical-align: middle; margin-top: -5px;">二级下家({$vv.invitss})
+						</a>
+					</td>
+					<td>{$vv.username}</td>
+					<td>{$vv.addtime|addtime}</td>
+				</tr>
+				<notempty name="vv['invits']">
+				<volist name="vv['invits']" id="vvv">
+				<tr class="invita_{$v['id']} invit_{$vv['id']} " style="display: none;">
+					<td style="text-align: left; padding-left: 60px;">
+						<a href="javascript:void(0)" onclick="Address({$vvv['id']})">
+							<img class="invita_img_{$v['id']} invit_img_{$vvv['id']}" src="__PUBLIC__/Home/images/jian.png" style="width: 18px; vertical-align: middle; margin-top: -5px;">三级下家
+						</a>
+					</td>
+					<td>{$vvv.username}</td>
+					<td>{$vvv.addtime|addtime}</td>
+				</tr>
+				</volist>
+				</notempty>
+				</volist>
+				</notempty>
+				</volist>
+			</tbody>
+		</table>
+	</div>
+<script>
+function Address(id){
+	var img1="__PUBLIC__/Home/images/jia.png";
+	var img2="__PUBLIC__/Home/images/jian.png";
+	var img=$(".invit_img_"+id).attr("src");
+	//alert(img)
+	if(img==img1){
+		$(".invit_img_"+id).attr("src",img2);
+		$(".invit_"+id).show();
+	}else{
+		$(".invit_img_"+id).attr("src",img1);
+		$(".invita_img_"+id).attr("src",img1);
+		$(".invit_"+id).hide();
+		$(".invita_"+id).hide();
+	}
+}
+
+function Addressb(id){
+	var img1="__PUBLIC__/Home/images/jia.png";
+	var img2="__PUBLIC__/Home/images/jian.png";
+	var img=$(".invit_img_"+id).attr("src");
+	//alert(img)
+	if(img==img1){
+		$(".invit_img_"+id).attr("src",img2);
+		
+		$(".invit_"+id).show();
+	}else{
+		$(".invit_img_"+id).attr("src",img1);
+		$(".invit_"+id).hide();
+		$(".invita_"+id).hide();
+	}
+}
+</script>

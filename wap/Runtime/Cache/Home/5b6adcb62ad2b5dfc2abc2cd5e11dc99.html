@@ -1,0 +1,159 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+		<title>用户登录</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css" />
+
+	<script type="text/javascript" src="/Public/Home/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/Public/Home/js/jquery.flot.js"></script>
+	<script type="text/javascript" src="/Public/Home/js/jquery.cookies.2.2.0.js"></script>
+	<script type="text/javascript" src="/Public/layer/layer.js"></script>
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		});
+	</script>
+</head><body>
+<div class="container">
+	<div class="head head_login">
+		<div class="left">
+			<a onclick="history.go(-1)"><img src="/wap/images/login_icon_arrow.png" class="icon_cha"></a>
+		</div>
+		<div class="title">登录<?php echo ($C['web_name']); ?>会员中心</div>
+		<div class="right">
+			<a href="/login/register.html">注册</a>
+		</div>
+	</div>
+	<div class="main main_login">
+		<div class="login">
+			<form method="post" >
+				<div class="form_box po_re">
+					<i class="form_icon po_ab"><img src="/wap/images/login_icon_user.png"></i>
+					<div>
+						<div class="input_box w_835 po_re"><input type="text" id="username" name="username" class="input" placeholder="请输入手机号码／用户名"></div>
+					</div>
+									</div>
+				<div class="form_box form_eye po_re">
+					<i class="form_icon po_ab"><img src="/wap/images/login_icon_pass.png"></i>
+					<div class="w_900 pass-box">
+						<input name="password" to_empty="1" class="input mima_dd " onfocus="this.type='password'" id="password" placeholder="请输入登录密码" >
+						
+						<i class="eyes_box icon_eye right"></i>
+					</div>
+					<span></span>
+				</div>
+													<div class="form_box po_re">
+					<i class="form_icon po_ab"><img src="/wap/images/login_icon_sms.png"></i>
+					<div>
+						<div class="input_box w_700 po_re"><input type="text" id="verify" name="verify" class="input" placeholder="输入右侧数字验证码"></div>
+					</div>
+					                    <span class="code_box right">
+                        <img id="codeImg" src="<?php echo U('Verify/code');?>"  onclick="this.src=this.src+'?t='+Math.random()" style="float: left; cursor: pointer;" title="换一张" class="gfs code_input">
+                    </span>
+									</div>
+
+								<div class="form_link clear">
+				<a href="/Login/findpwd.html" class="right">忘记密码</a><a href="/login/register.html" class="left">注册账号</a>
+				</div>
+				<div class="form_btn mr_0">
+					<input type="button" class="btn" name="login" onclick="Update();" id="login" value="登录">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	xuetong.eyes_box();
+</script>
+				<div class="index_trust">
+			<h2 class="hui_a center"><?php echo ($C['web_name']); ?>专业的虚拟币交易所</h2>
+			<ul class="center clear">
+				<li>
+					<img src="/wap/images/index_trust1.png" width="100%">
+					<p>系统可靠</p>
+				</li>
+				<li>
+					<img src="/wap/images/index_trust2.png" width="100%">
+					<p>资金安全</p>
+				</li>
+				<li>
+					<img src="/wap/images/index_trust3.png" width="100%">
+					<p>快捷方便</p>
+				</li>
+				<li>
+					<img src="/wap/images/index_trust4.png" width="100%">
+					<p>服务专业</p>
+				</li>
+			</ul>
+<script>
+
+var ele_pass_box = document.getElementsByTagName("div")[10];
+                var ele_pass = ele_pass_box.getElementsByTagName("input")[0];
+                var ele_eye = ele_pass_box.getElementsByTagName("i")[1];
+                ele_eye.onclick = function() {
+                    var state = this.getAttribute("state");
+                    if (state === "on") {
+                        ele_pass.setAttribute("type", "password");
+                        ele_eye.setAttribute("state", "off");
+                        ele_eye.setAttribute("class", "eyes_box icon_eye right");
+                    } else {
+						ele_pass.setAttribute("type", "text");
+                        ele_eye.setAttribute("state", "on");
+                        ele_eye.setAttribute("class", "eyes_box icon_eye open right");
+                    }
+                }
+
+	//记住账号
+	var cookieValue=$.cookies.get('cookie_username');
+	if(cookieValue!=''&&cookieValue!=null){
+		$("#username").val(cookieValue);
+		$("#autoLogin").attr("checked",true);
+	}
+
+
+	function Update(){
+		var username=$("#username").val();
+		var password=$("#password").val();
+		var verify=$("#verify").val();
+		if(username==""||username==null){
+			layer.tips('请输入用户名','#username',{tips:3});
+			return false;
+		}
+		if(password==""||password==null){
+			layer.tips('请输入登录密码','#password',{tips:3});
+			return false;
+		}
+		if(verify==""||verify==null){
+			layer.tips('请输入验证码','#verify',{tips:3});
+			return false;
+		}
+
+
+		$.post("/Login/submit",{username:username,password:password,verify:verify},function(data){
+			if(data.status==1){
+				<!-- if($("#autologin").attr("checked")=='checked'){ -->
+					<!-- $.cookies.set('cookie_username',username); -->
+				<!-- }else{ -->
+					<!-- $.cookies.set('cookie_username',null); -->
+				<!-- } -->
+				layer.msg(data.info,{icon:1});
+				window.setTimeout("window.location='/index'",1000);
+			}else{
+				layer.msg(data.info,{icon:2});
+				if(data.url){
+					window.setTimeout("window.location="+data.url,1000);
+				}
+			}
+		},"json");
+	}
+</script>
+
+</body>
+</html>

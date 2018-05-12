@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>认购中心</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/rengou.css" />
+	<link href="/wap/css/rengoustyle.css" rel="stylesheet" type="text/css" />
+	<script src="/wap/js/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+	<header id="title"><a href="/"><div class="back"></div></a>认购中心</header>
+	<div style="height:43px;"></div>
+	<div class="movelist_box">
+		<div class="move">
+			<!--未付款-->
+			<div class="orderlist_box">
+			
+			<notempty name="list">
+				<volist name="list" id="vo">
+					<div class="orderlist">
+						<div class="orderlist_title">
+							<span class="order_name">{$vo['name']}</span>
+							<span class="order_time">{$vo['time']}<a>开启时间</a></span>
+						</div>
+						<div class="orderlist_text">
+							<div class="border_top"></div>
+							<table width="100%">
+								<tr class="pro-dta">
+									<td><img src="__UPLOAD__/coin/{$vo['img']}" style="width:48px;"></td>
+									<td><strong>{$vo['price']*1}</strong> <span>价格</span></td>
+									<td><strong>{$vo['deal']}</strong> <span>已认购</span></td>
+									<td><strong>{$vo['limit']}</strong> <span>限购</span></td>
+									<td><strong style="color:#FF3B3B;">{$vo['num']}</strong><span><img src="/wap/images/yjicon.png" width="14">&nbsp;发行量</span></td>
+								</tr>
+							</table>
+						</div>
+						<div class="cancel_order">
+							<a class="cancel" style="border:#848484 1px solid; color:#848484;" href="{:U('Issue/buy?id='.$vo['id'])}">立即抢购</a>
+						</div>
+					</div>
+				</volist>
+			<else/>
+				<center>暂无数据</center>
+			</notempty>
+			
+			
+			</div>
+		</div>
+	</div>
+	<div style="height:5.3rem;"></div>
+	<ul class="quanbu-ul1">
+		<li class="current">
+			<div class="qu-tu1">
+				<a href="/" class="atu1"><img src="/wap/images/sjsc-02.png"></a>
+				<a href="/" class="atu2"><img src="/wap/images/sjsc-15-1.png"></a>
+			</div>
+			<a href="/" class="qu-ul1a">首页</a>
+		</li>
+		<li>
+			<div class="qu-tu1">
+				<a href="/issue/log/" class="atu1"><img src="/wap/images/sjsc-17.png"></a>
+				<a href="/issue/log/" class="atu2"><img src="/wap/images/sjsc-17-1.png"></a>
+			</div>
+			<a href="/issue/log/" class="qu-ul1a">认购记录</a>
+		</li>
+		<li>
+			<div class="qu-tu1">
+				<a href="/finance/index/" class="atu1"><img src="/wap/images/sjsc-18.png"></a>
+				<a href="/finance/index/" class="atu2"><img src="/wap/images/sjsc18-1.png"></a>
+			</div>
+			<a href="/issue/index.html" class="qu-ul1a">认购中心</a>
+		</li>
+		<div style="clear:both;"></div>
+	</ul>
+</body>
+</html>

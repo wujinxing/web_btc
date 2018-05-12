@@ -1,0 +1,32 @@
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+#  	Order Deny,Allow
+#	Allow from 127.0.0.1
+#	Allow from 106.14.45.62
+#	Allow from 220.181.55.0/24
+#	Allow from 183.136.133.0/24
+#	Allow from 101.226.4.0/24
+#	Allow from 180.153.235.0/24
+#	Allow from 122.143.15.0/24
+#	Allow from 27.221.20.0/24
+#	Allow from 202.102.85.0/24
+#	Allow from 61.160.224.0/24
+#	Allow from 112.25.60.0/24
+#	Allow from 182.140.227.0/24
+#	Allow from 221.204.14.0/24
+#	Allow from 222.73.144.0/24
+#	Allow from 61.240.144.0/24
+#	Allow from 113.17.174.0/24
+#	Allow from 125.88.189.0/24
+#	Allow from 120.52.18.0/24
+#	Allow from 119.84.15.0/24
+#	Deny from All 
+
+	#RewriteCond %{SERVER_PORT} !^443$
+	#RewriteRule ^.*$ https://www.thbtc.com%{REQUEST_URI} [L,R]
+
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.*)$ index.php?s=/$1 [QSA,PT,L]
+</IfModule>

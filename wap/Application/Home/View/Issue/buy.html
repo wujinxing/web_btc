@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>认购</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/rengou.css" />
+	<link href="/wap/css/rengoustyle.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/layer/layer.js"></script>
+</head>
+<body>
+	<header id="title"><a href="/issue/index/"><div class="back"> </div></a>认购</header>
+	<div style="height:43px;"></div>
+	<div class="movelist_box">
+		<div class="move">
+			<div class="orderlist_box">
+				<div class="orderlist">
+					<div class="orderlist_title"><span class="order_name">{$issue['name']}</span><span class="order_time">{$issue['time']}<a>开启时间</a></span></div>
+					<div class="orderlist_text">
+						<div class="border_top"></div>
+						<table width="100%">
+							<tr class="pro-dta">
+								<td><img src="{:C('siteurl')}__UPLOAD__/coin/{$issue['img']}" style="width: 48px;"></td>
+								<td colspan="3" style="text-align:left;"><span>账号余额</span><strong>{$user_coin[$issue['buycoin']]*1} {$issue['buycoin']|strtoupper}</strong></td>
+							</tr>
+							<tr class="pro-dta">
+								<td><strong>{$issue['price']*1}</strong> <span>发行价格</span></td>
+								<td><strong>{$issue['deal']*1}</strong> <span>已认购</span></td>
+								<td><strong>{$issue['limit']*1}</strong> <span>限购</span></td>
+								<td><strong style="color:#FF3B3B;">{$issue['num']*1}</strong> <span><img src="/wap/images/yjicon.png" width="14">&nbsp;发行数量</span></td>
+							</tr>
+							<tr class="pro-dta">
+								<td><strong>{$issue['coinname']}</strong> <span>认购币种</span></td>
+								<td><strong>{$issue['ci']}次</strong> <span>解冻次数</span></td>
+								<td><strong>{$issue['jian']}小时</strong> <span>解冻间隔</span></td>
+								<td><strong style="color:#FF3B3B;">{$issue['bili']}%</strong> <span><img src="/wap/images/yjicon.png" width="14">&nbsp;认购进度:</span></td>
+							</tr>
+						</table>
+					</div>
+					<div style="height:40px;"></div>
+					<div class="product_step"><h2>填写认购信息</h2></div>
+					<ul class="product_sq">
+						<li><span>认购数量</span><input type="text" class="add-input" id="num" placeholder="请输入认购数量"></li>
+						<li><span>交易密码</span><input type="text" class="add-input" id="paypassword" placeholder="请输入交易密码"></li></ul>
+						<input type="button" class="confirm" onClick="Update()" value="立即认购" />
+						<div class="detail-toggle">
+							<div class="projectitem">
+								<div class="title z-active"><strong class="tit">详细介绍</strong><i class="arrow arrow-1"></i></div>
+								<div class="content" style="display:block;"><div class="c">{$issue['content']|htmlspecialchars_decode}</div></div>
+							</div>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>	
+<!--底部导航-->
+	<div style="height:5.3rem;"></div>
+	<ul class="quanbu-ul1">
+		<li class="current">
+			<div class="qu-tu1">
+				<a href="/" class="atu1"><img src="/wap/images/sjsc-02.png"></a>
+				<a href="/" class="atu2"><img src="/wap/images/sjsc-15-1.png"></a>
+			</div>
+			<a href="/" class="qu-ul1a">首页</a>
+		</li>
+		<li>
+			<div class="qu-tu1">
+				<a href="/issue/log/" class="atu1"><img src="/wap/images/sjsc-17.png"></a>
+				<a href="/issue/log/" class="atu2"><img src="/wap/images/sjsc-17-1.png"></a>
+			</div>
+			<a href="/issue/log/" class="qu-ul1a">认购记录</a>
+		</li>
+		<li>
+			<div class="qu-tu1">
+				<a href="/finance/index/" class="atu1"><img src="/wap/images/sjsc-18.png"></a>
+				<a href="/finance/index/" class="atu2"><img src="/wap/images/sjsc18-1.png"></a>
+			</div>
+			<a href="/issue/index.html" class="qu-ul1a">认购中心</a>
+		</li>
+		<div style="clear:both;"></div>
+	</ul>
+<script>
+    function Update() {
+        var id = "{$issue['id']}";
+        var num = $('#num').val();
+        var paypassword = $('#paypassword').val();
+        if (num == "" || num == null) {
+            layer.tips('请输入认购数量', '#num', {tips: 3});
+            return false;
+        }
+        if (paypassword == "" || paypassword == null) {
+            layer.tips('请输入交易密码', '#paypassword', {tips: 3});
+            return false;
+        }
+        $.post("{:U('Issue/upbuy')}", {id: id, num: num, paypassword: paypassword}, function (data) {
+            if (data.status == 1) {
+                layer.msg(data.info, {icon: 1});
+                window.location = "{:U('Issue/log')}";
+            } else {
+                layer.msg(data.info, {icon: 2});
+                if (data.url) {
+                    window.location = data.url;
+                }
+            }
+        }, "json");
+    }
+</script>
+</body>
+</html>

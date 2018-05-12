@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{$dq_title}转出</title>
+	<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link href="/wap/css/global.css?v=1.0" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/style.css?v=1.2" />
+	<link rel="stylesheet" type="text/css" href="/wap/css/swiper3.1.0.min.css?v=1.1" />
+	<script type="text/javascript" src="/wap/js/1.7.2.min.js"></script>
+	<script src="/wap/js/index.js?v=1.7"></script>
+	<script type="text/javascript" src="/wap/js/wvke.js?v=1.1"></script>
+	<script type="text/javascript">
+		user = {
+			uid: 0,rmb_over: 0,rmb_lock: 0,btc_over: 0, btc_lock: 0,eth_over: 0, eth_lock: 0,ltc_over: 0, ltc_lock: 0,doge_over: 0, doge_lock: 0,ybc_over: 0, ybc_lock: 0,email: '',name: ''
+		};
+		CoinRate = {"btc":7710,"ltc":"26.20","doge":"0.00141","ybc":"8.55","eth":"92.63"};		btvs(10,108158680);
+		timestamp = 1488158680;
+		moneyconfig = {coin:"rmb", sign:"￥"};
+	</script>
+	<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+	<script>
+		function _size(){
+			document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.80 + 'px';
+		}
+		_size();
+		window.onresize = function(){
+			_size();
+		}
+	</script>
+</head><body>
+<div class="container">
+	<!--头部-->
+	<div class="head head_white">
+		<div class="left">
+			<a href="/finance/"><img src="/wap/images/login_icon_arrow2.png" class="icon_cha"></a>
+		</div>
+		<div class="title">{$xnb_title}({$xnb})<i class="jian_xia"></i>
+			<div class="trade_con_all po_ab">
+				<volist name="coin_list" id="vo" key="key"> 
+					<a href="/Finance/myzc/coin/{$vo['name']}">{$vo.title} ({$vo['name']|strtoupper})</a>
+				</volist>
+			</div>
+		</div>
+		<div class="right">
+			<a href="/finance/myzcdetails/coin/{$xnb}"><img src="/wap/images/icon_list.png" class="icon_list"></a>
+		</div>
+	</div>
+	<div class="main">
+		<div class="margin_lbian">
+			<form id="form" >
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon  w_230">转出地址</i>
+					<div>
+						<div class="select_box w_670 left">
+						<notempty name="userQianbaoList">
+							<select name="type" class="select" id="myzc_addr">
+									<volist name="userQianbaoList" id="vo">
+										<option value="{$vo.id}">{$vo.name}</option>
+									</volist>
+								</select>
+								<else/>
+								<a href="/User/qianbao/coin/{$xnb}" class="fz_4">新添加一个接收地址</a>
+								</notempty>
+						</div>
+						<a href="/User/qianbao/coin/{$xnb}" class="icon_add right"><img src="/wap/images/icon_add.png"> </a>
+					</div>
+				</div>
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon  w_230">转出数量</i>
+					<div>
+						<div class="input_box po_re left"><input type="text" class="input w_430 subMoneyali" id="nums" value="" placeholder="请输入转出数量" /></div>
+						<span class="right green fz_4">(转出手续费{$coin_list[$xnb]['zc_fee']}%)</span>
+					</div>
+				</div>
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon  w_230">交易密码</i>
+					<div>
+						<div class="input_box po_re w_740"><input type="password" class="input" id="paypassword" value="" placeholder="请输入交易密码" /></div>
+					</div>
+				</div>
+				<div class="form_box po_re findpw_yzm clear ml_230">
+					<input type="button" id="regBtn"  onclick="SendCode()" value="短信验证码" class="yzm_sms" />
+				</div>
+				<div class="form_box po_re findpw_tan">
+					<i class="form_icon w_230">手机验证码</i>
+					<div><div class="input_box po_re w_740"><input type="text" name="moble_verify" id="moble_verify" class="text"/></div></div>
+				</div>
+				<div class="form_btn">
+					<input type="button" class="btn"  onclick="Update()" name="deposit_next" id="deposit_next" value="提 交">
+				</div>
+			</form>
+			<div class="withdraw_con border_none">
+				<h2 class="fz_4 gfs">温馨提示</h2>
+				<p>请绑定您要转出的钱包地址,2个确认后即可收到转出的虚拟币,转出的地址请勿填写交易网站上面转入的地址,否则会造成不必要的损失！</p>
+			</div>
+		</div>
+	</div>
+
+</div>
+<script type="text/javascript">
+	function subMoneyKeyUp(obj,event) {
+		event = event ? event : window.event;
+		if(typeof event !='undefined' && (event.keyCode == 37 || event.keyCode == 39)){
+			return;
+		}
+		obj.value=obj.value.replace(/\D	/g,'');
+		var cnyTotal = parseFloat(obj.value+$(".random").html());
+	}
+	xuetong.sendsms();
+	function wm() {
+		$.post('/ajax/wm/', $('#form').serialize(), function (d) {
+			ajax_islogin(d);
+			alert(d.msg);
+			if (d.status) location.reload();
+		}, 'json');
+	}
+
+	
+	function SendCode() {
+        $('#regBtn').attr("disabled", "disabled");
+        $.post("{:U('Verify/myzc')}", {}, function (data) {
+            if (data.status == 1) {
+                layer.msg(data.info, {icon: 1});
+                var obj = $('#regBtn');
+                var wait = 60;
+                var interval = setInterval(function () {
+                    obj.css('backgroundColor', '#999B9C');
+                    obj.val(wait + '秒再次发送');
+                    wait--;
+                    if (wait < 0) {
+                        clearInterval(interval);
+                        obj.val('获取验证码');
+						$('#regBtn').removeAttr("disabled");
+                        obj.css('backgroundColor', '#0096e0');
+                    }
+                    ;
+                }, 1000);
+            }
+        }, "json");
+    }
+	function Update() {
+        var coin = "{$xnb}";
+        var addr = $('#myzc_addr option:selected').val();
+        var num = $("#nums").val();
+        var moble_verify = $("#moble_verify").val();
+        var paypassword = $("#paypassword").val();
+        if (addr == "" || addr == null) {
+			alert('请选择钱包！');
+            return false;
+        }
+
+        if (moble_verify == "" || moble_verify == null) {
+			alert('请输入短信验证码！');
+            return false;
+        }
+
+        if (num == "" || num == null) {
+			alert('请输入转出数量！');
+            return false;
+        }
+
+        if (paypassword == "" || paypassword == null) {
+			alert('请输入交易密码！');
+            return false;
+        }
+
+        $.post("{:U('Finance/upmyzc')}", {
+            coin: coin,
+            addr: addr,
+            num: num,
+            paypassword: paypassword,
+            moble_verify: moble_verify
+        }, function (data) {
+            if (data.status == 1) {
+				alert(data.info);
+                window.location = "{:U('Finance/myzc')}?coin=" + coin;
+            } else {
+                alert(data.info);
+            }
+        }, "json");
+
+    }
+</script>
+<script type="text/javascript">
+	coin = {name: 'btc', sign: '', id: 1};
+	BSConfig.limit = $.cookie('bslimit');
+	if(!BSConfig.limit) BSConfig.limit = 5;
+	if(BSConfig.limit==20) $('#bssetlink').html(lang('点击收起')).attr('class', 'up');
+	BSConfig.sort = 1;
+	btcsum();
+	btcorder(30);
+	opentrades();
+	getbalance()
+	$('#pricein,#priceout').before('<div class="price-warr">价格与市场价偏差过大，请慎重填写！</div>');
+
+	function getbalance(){
+		$.post('/user_index/balance',function(d){
+			$('#loan_coin').html(d['btc_loan']);
+			$('#loan_rmb').html('¥'+d['rmb_loan']);
+		},'json');
+	}
+	xuetong.title_tab();
+</script>
+</body>
+</html>

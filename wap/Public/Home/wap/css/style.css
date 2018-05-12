@@ -1,0 +1,534 @@
+﻿/*－－－－－－－－－－头部－－－－－－－－－－－－－－－－－－*/
+.head{width: 100%;height: 1.33rem;text-align: center;background: #fff;font-size: 0.48rem;-webkit-transform: translateX(0);-webkit-transition: .2s -webkit-transform ease-in-out;width: 100%;position: fixed;z-index: 300;top: 0px;left: 0;}
+.head .left{height:1.33rem;width: 1.33rem;box-sizing: border-box;}
+.head .left a{display: block}
+.logo{padding:.35rem 0px 0px .4rem;}
+.logo img{height: .63rem;}
+.head .title {text-align: center;line-height: 1.33rem;display: inline-block;}
+.head .right {height:1.33rem; width: 1.33rem;padding:.3rem .3rem;box-sizing: border-box; line-height: .73rem;}
+.head .right a{display: block;}
+.head_nav{background:#ed4040;box-shadow: 2px 0 5px rgba(0,0,0,0.3);}
+.main{padding-bottom: .4rem;background: #fff; padding-top: 1.33rem; }
+.main_login{ padding-top: 0px;}
+.lm_tab_1 .list{cursor: pointer;}
+/*－－－－－－－－－－－－首页－－－－－－－－－－－－－－－－－－－*/
+.banner {height: 4.5rem;width: 100%;position: relative;overflow: hidden;}
+.banner img {width: auto;height: 4.5rem;}
+.index_notice{height: 1.17rem; border-bottom: 1px solid #f6f6f8; padding:.32rem .4rem; box-sizing: border-box;}
+.index_notice span{font-size: .4rem; line-height: .53rem; margin-left: .2rem; float: left;width: 9.3rem;height: .53rem; overflow: hidden;}
+.index_notice marquee{width: 9.3rem;margin-left: .2rem; float: left;}
+.index_user_login{padding:.86rem 1.5rem;}
+.btn_login{display:inline-block;width: 3.12rem; height: 1rem; line-height: 1rem; border: 1px solid #ed4040; border-radius: 3px; text-align: center; font-size:.48rem; color: #ed4040;}
+
+.btn_register{background:#ed4040; color: #fff;}
+.index_user_con{padding:.24rem .4rem; font-size: .4rem;}
+.index_user_con p{line-height: .8rem;}
+.index_user_nav{ padding: .55rem 0px; border-top: .32rem solid #f6f6f8;border-bottom: .32rem solid #f6f6f8;}
+.index_user_nav li{display: block; width: 25%; float: left; text-align: center;}
+.index_user_nav li img{width: .8rem; height: .8rem; margin: 0px auto;}
+.index_user_nav li p{font-size: .36rem; margin-top: .36rem;}
+.index_coin_card{padding:.5rem 0px; margin-left: .35rem; font-size:.36rem; border-bottom: 1px solid #f6f6f8;}
+.index_coin_card li{float: left;}
+.icon_coin{width: 70%;}
+.index_coin_card p{line-height: .5rem;}
+.index_coin_card span{display: inline-block; max-width:2.2rem; float: left; font-size: .42rem; line-height: .6rem;}
+.index_coin_card img{display:inline-block; float: left; margin-top: .04rem;}
+.index_volume{background: url("../images/index_volume.png") no-repeat center; background-size: 100%; padding: .76rem 0rem 1rem; color: #fff;text-align: center;}
+.index_volume h2,.index_trust h2,.index_trade h2{ font-size: .42rem; margin-bottom: .3rem;}
+.index_volume p{font-size: .36rem;margin-bottom: .88rem;}
+.index_volume_num{ font-size: .3rem;}
+.index_volume_num span{font-size:.72rem; display: inline-block; width: .82rem; height: 1.30rem; line-height: 1.3rem; background: url("../images/index_volume_s.png") no-repeat; background-size: 100%; margin:0px .08rem;}
+.index_prompt{ padding: .78rem .4rem 1rem; background: #f6f6f8;}
+.index_prompt h2{ font-size:.45rem;}
+.index_prompt_jj{font-size: .39rem; margin-top: .55rem; line-height: .6rem;}
+.index_prompt ul{margin-top: .8rem;}
+.index_prompt li{font-size:.36rem; margin-top: .37rem;}
+.index_prompt_img{width: .6rem; height: .6rem; margin:-.03rem .4rem 0px; float: left;}
+.index_prompt li p{display: inline-block;}
+.index_prompt li i{display: inline-block; width: .63rem; height:.2rem; border-top: 1px solid #dcdde4; margin: 0px .7rem;}
+.index_trade{padding: .76rem .4rem .6rem; border-bottom: 1px solid #f6f6f8; text-align: center;}
+.index_trade li{width: 25.3%; margin:.84rem 4% 0px; float: left;}
+.index_trade li img{height:1rem; width: auto;}
+.index_trade span{font-size: .39rem; display: block; margin: .3rem 0px;}
+.index_trade p{font-size: .3rem; text-align: left;}
+.index_trust{ padding: .78rem .4rem .6rem; border-bottom: 1px solid #f6f6f8;}
+.index_trust li{width: 25%;float: left; padding: 0px 3%;}
+.index_trust li img{margin: .5rem 0px .2rem;}
+.index_contact{padding: .6rem 0px; background: #f6f6f8; font-size: .42rem;}
+.index_contact_tel{width: 50%; height: .5rem; line-height: .5rem; float: left; text-align: right; padding-right: .3rem; border-right: 1px solid #a0a0ab;}
+.index_contact_qq{width: 50%;float: left; padding-left: .3rem;height: .5rem; line-height: .5rem;}
+.index_contact_tel img,.index_contact_qq img{width: .48rem; margin-right: 10px; margin-top: -.1rem;}
+
+.index_info_t{ font-size: .43rem; padding: .8rem 0px .4rem;}
+.index_info_t p a{ font-size: .36rem;}
+.icon_info{width: .5rem; height: .5rem; margin-right: .2rem;}
+.index_info_c{padding: .2rem 0px .4rem;}
+.index_info_c li{line-height: .68rem;height: .68rem;}
+.index_info_c li span{margin-right: .1rem; float: left;}
+.index_info_c li a{display: inline-block; width: 8.6rem; height: .68rem; overflow: hidden;}
+/*－－－－－－－－－－－－－－－底部－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+.foot{text-align: left;margin-top: 0px;background-color: #21212b;color: #fff;padding: 5px .4rem; font-size: .3rem;}
+.foot .gfs img{width: .48rem; margin-right: 5px;}
+.foot_download{width: 100%;height: auto;text-align: center;-webkit-transform: translateX(0);-webkit-transition: .2s -webkit-transform ease-in-out;width: 100%;position: fixed;z-index: 300;bottom:0px;left: 0;display: none;}
+.foot_download span{display: block; width: .5rem; height: .5rem; line-height: .55rem; text-align: center; background: #fff; right: .15rem; top: .43rem; border-radius: 50%; font-size: .3rem;color: #ff9600; z-index: 100;}
+
+/*－－－－－－－－－－－－－－－登录－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+.head_login{width: 100%; height: 4.5rem; background: url("../images/top_bg.jpg") no-repeat center; background-size: 100%; color: #fff; position: static;}
+.head_login .right{padding: .3rem .3rem .4rem 0rem;}
+.head_login .right a{color: #fff;}
+.login{padding: 0px .4rem;}
+.form_box{width: 100%; height:1.3rem; line-height:.7rem;  padding: .3rem 0px .3rem .9rem; border-bottom: 1px solid #f6f6f8; margin-bottom: .3rem;}
+.form_box div{display: inline-block;}
+.form_icon{display: block; float: left; left: 0px; top: .3rem; width: auto; padding-right: .25rem; height: 1.1rem; background: #fff; font-size: .4rem;}
+.form_icon img{width: .46rem;}
+.input,.text{ border: none; height: .7rem; line-height: .7rem; font-size: .4rem; width:7rem;}
+.form_link{margin:.3rem 0px 0px; font-size: .36rem;}
+.form_btn{margin: 1rem .4rem 0px 0px;}
+.btn{width: 100%; height:1.1rem; line-height: 1.1rem; background: #ed4040; color: #fff; font-size:.42rem; border: none; border-radius: 3px;}
+.form_eye .icon_circha{right: .9rem; top:.4rem;}
+/*－－－－－－－－－－－－－注册－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+.form_link{text-align: center;}
+.form_link img{margin: -.1rem .1rem 0px 0px;}
+/*－－－－－－－－－－－－－找回密码－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+.head_white{ background: #fff; border-bottom: 1px solid #f6f6f8;}
+.findpw_title{width: 100%; height: 1.2rem; background: #f6f6f8; padding: 0px 20%; font-size:.45rem;}
+.findpw_title li{height: 1.2rem; line-height: 1.2rem; float: right;}
+.findpw_title li:first-child{float: left;}
+.findpw_title li.hover{color:#ed4040; border-bottom: 2px solid #ed4040; box-sizing: border-box;}
+.findpw_tan{padding-left:0rem;}
+.findpw_tel{ font-size: .4rem;}
+.findpw_yzm{margin-left:1.9rem; padding-left: 0px; height: auto; width: auto;}
+.findpw_yzm a,.findpw_yzm input{display: inline-block; font-size: .4rem; width: 3.62rem; height: 1rem; line-height: 1rem; text-align: center; float: left; margin-right: .4rem; border-radius: 3px;}
+.findpw_yzm a:hover,.findpw_yzm input:hover{background: #ed4040; color: #fff;}
+.yzm_sms{color:#ed4040; border: 1px solid #ed4040;}
+.yzm_sms_hui{color:#a0a0ab;border: 1px solid #a0a0ab; }
+.findpw_yzm a.yzm_sms_hui:hover{color:#a0a0ab;border: 1px solid #a0a0ab; background: none;}
+.verify_img{width: 2.09rem; height: .84rem; margin-top: -.1rem;}
+.verify_img2{bottom: 0px; right: 0px;}
+/*－－－－－－－－－－－－交易－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+.market_top_num{padding: .4rem 0px .4rem; margin-bottom: .4rem; border-bottom: 1px solid #f5f5f5;}
+.market_top_num .num_list{width: 22%; margin-right: 1%;}
+.market_top_num .num_list_change{width: 28%;}
+.market_top_num .num_list span{display: block; line-height: .66rem;}
+.market_top_num .num_list .red,.market_top_num .num_list .green{font-size: .45rem;}
+.market_top_num .num_list i{margin-left: .2rem;}
+.marget_t{height: .98rem; border: 1px solid #ed4040; border-radius: 3px; box-sizing: content-box;}
+.marget_t a{display: inline-block; width: 50%; height: .98rem; line-height: .98rem; text-align: center; float: left; font-size: .45rem; color: #ed4040;}
+.marget_t a.hover{ background: #ed4040; color: #fff;}
+.trade_con1{padding: .6rem 0px;}
+.trade_con_l{background: #f6f6f8; width: 50%; padding:0px .2rem;}
+.trade_sb_list li{ line-height: 1.45rem; font-size: .4rem;}
+.trade_sb_list li span{display: block; float: left; height: 1.2rem;overflow: hidden;}
+.trade_sb_con{width:3.5rem; height:.75rem;line-height:.75rem; margin: .6rem auto; padding:0px .3rem; font-size: .45rem; }
+.trade_sb_con img{margin-top: -.15rem;}
+.trade_sb_con em{width: 2.2rem; height:.75rem; overflow: hidden;}
+.trade_sb_con span{ display: inline-block; font-size: 1.2rem; float: left; line-height: .55rem;}
+
+.trade_con_r{width: 50%; padding-left: .37rem;}
+.trade_con_rt{width: 3.17rem;}
+.trade_con_rt li{height: .66rem; display: inline-block; float: right;font-size: .45rem;}
+.trade_con_rt li:first-child{float: left; }
+.trade_con_rt li.red,.trade_con_rt li.green{color:#3f3d4d!important;}
+.trade_con_rt li.hover.red{ border-bottom:2px solid #ff3b3b; color:#ff3b3b!important; }
+.trade_con_rt li.hover.green{ border-bottom:2px solid #25cb7b!important; color: #25cb7b!important;}
+.trade_buy{ margin-top: .4rem;}
+.trade_buy_box{margin-bottom: .2rem; height: 1.18rem; width: 100%;}
+.input_text{ width: 100%; padding:0px .28rem 0px 2rem; height: 1.17rem; line-height: 1.18rem; text-align: right; font-size: .45rem; border: 1px solid #f6f6f8; border-radius: 3px;}
+.input_p{border: none;}
+.trade_buy_box span{top: 0px; left:.28rem; line-height: 1.18rem;}
+.input_btn{background: #ff3b3b; color: #fff; text-align: center; padding: 0px;}
+.input_btn.btn_green{background: #25cb7b;color: #fff}
+.input_btn.input_hui{background: #dcdde4;}
+.trade_buy_btn{margin-top: .4rem;}
+.trade_assets{margin-top: .45rem; border-radius: 3px;}
+.trade_assets_box{padding: .25rem .28rem;}
+.trade_assets_box:first-child{border-top: 0px; line-height: .68rem;}
+.trade_assets_box p{ line-height: .7rem;}
+.box-red{ border: 1px dashed #ff3b3b;}
+.box-green{ border: 1px dashed #25cb7b;}
+.box-red-top{ border-top: 1px dashed #ff3b3b;}
+.box-green-top{ border-top: 1px dashed #25cb7b;}
+.trade_fun{margin-top: .46rem;}
+.trade_fun a{display: block;width: 2.1rem; height: 1.2rem; line-height: 1.2rem; text-align: center;  border-radius: 3px; font-size: .45rem;}
+.trade_fun_red a{border: 1px solid #ff3b3b;}
+.trade_fun_green a{border: 1px solid #25cb7b;}
+.trade_entrust_t{height: 1.2rem; line-height: 1.2rem; font-size: .39rem; background: #f6f6f8; padding:0px .4rem;}
+.trade_entrust_t a{font-size: .36rem;}
+.trade_entrust_list{padding-left: .4rem;}
+.trade_entrust_list dt,.trade_entrust_list dd{line-height: 1rem;}
+.trade_entrust_list dt{border-bottom: 1px solid #f6f6f8; margin-bottom: .15rem;}
+.trade_entrust_list dd{font-size: .4rem;margin: .1rem 0px;}
+.trade_entrust_list span{display: block; float: left;}
+.btn_kill{display: block;  width: 100%; height: .6rem; line-height: .6rem; border: 1px solid #ed4040; border-radius: 3px; text-align: center; margin-top: .15rem;}
+.trade_login{width: 4.6rem; height: 5.56rem; margin-top: .4rem; border: 1px dashed #ed4040; border-radius: 3px;}
+.trade_login_top{padding:1rem 0px .7rem;}
+.trade_login_top img{width: 1.72rem; height: 1.72rem;}
+.trade_login_top p{font-size: .45rem; margin-top: .43rem;}
+.trade_login_foot{border-top: 1px dashed #ed4040; line-height: 1.1rem; font-size: .34rem;}
+
+.market_k{margin-top: .4rem;}
+.market_k iframe{border: none;}
+.btn-group{display: -webkit-flex;  display: flex;flex-direction:row;}
+.btn-group button{outline:0;font-size:14px;color:#9b9ea7;background-color: #1f222b;border:1px solid #2a2d36;width: 16.66666%; }
+.btn-group button.btn-success{background-color: #292c35;color:#fff;}
+.market_kt{font-size: .5rem; color: #fff; margin: .7rem 0px .4rem;}
+.chart-con-sd{height: 10rem;}
+.market_turntable_t{height: 1.2rem; line-height: 1.2rem; background: #f6f6f8; width: 100%;padding: 0px .4rem; font-size: .39rem; margin-bottom: .1rem;}
+.trade_turntable_list dd{position: relative;}
+.trade_turntable_list_r{padding-left: 0px;}
+.trade_turntable_con,.trade_entrust_con{max-height: 11rem; width: 100%; overflow-y: auto;}
+
+.turntable_bg_red{position: absolute; height: .58rem; margin: .18rem 0px; display: block; background:rgba(255,59,59,0.2); right: 0px;}
+.turntable_bg_green{position: absolute; height: .58rem; margin: .18rem 0px; display: block; background:rgba(41,194,120,0.2);left:0px;}
+.marget_record .turntable_bg_red,.marget_record .turntable_bg_green{ left: 0px; top: 0px;}
+.trade_con_all{width: 10.8rem; height: 3rem; background: #fff; border-radius: 3px; border: 1px solid #f6f6f8; left: 0px; display: none; z-index: 100;}
+.trade_con_all a{display: block; height: 1.3rem ;line-height: 1.3rem; border-bottom: 1px solid #f6f6f8; background: rgba(255,255,255,0.95)}
+.trade_con_all a:hover{background: #ed4040; color: #fff;}
+/*－－－－－－－－－－－－－－－人民币充值－－－－－－－－－－－－－－－－－－－－－－*/
+.list_tab{width: 100%;background: #f6f6f8; height: 1.2rem;}
+.list_tab_con{width: 60%; font-size: .45rem;}
+.list_tab_con li{float: left; height: 1.2rem; line-height: 1.2rem;border-bottom: 2px solid #f6f6f8; }
+.list_tab_con li:last-child{float: right;}
+.list_tab_con li.hover{border-bottom: 2px solid #ed4040; }
+.list_tab_con li.hover a{color: #ed4040;}
+.form_money_jj{height: 1.02rem; line-height: 1.02rem; margin-left: 1.9rem;}
+.select{background: url("../images/icon_jian.png") no-repeat 6.3rem .3rem #fff; background-size:.28rem .16rem;border:none; height: .7rem; line-height: .7rem; font-size: .4rem; width:120%;}
+.select_box{height:.7rem; overflow: hidden;}
+.select_s{background: url("../images/icon_jian.png") no-repeat 2rem .3rem #fff;background-size:.28rem .16rem;}
+.quanselect{background: url("../images/icon_jian.png") no-repeat 8.5rem .3rem #fff;background-size:.28rem .16rem;}
+.icon_add{width:.8rem; height: .6rem; border-left: 1px solid #f6f6f8; padding-left: .2rem; margin-left: .1rem;float: right; margin-top: .1rem;}
+.icon_add img{width:.4rem; height: .4rem; margin-top: -.13rem;}
+
+/*－－－－－－－－－－－－－－人民币提现－－－－－－－－－－－－－－－－－－－－－－－*/
+.withdraw_con{margin-top: .5rem; line-height: .65rem; border-bottom: .8rem solid #f6f6f8; padding:0px .4rem .3rem;}
+.withdraw_con h2{margin-bottom: .2rem;}
+.form_radio{margin: .4rem 0px; font-size: .4rem;}
+.radio{width: .5rem; height: .5rem; background: #ed4040; margin:.03rem .2rem 0px 0px;}
+/*－－－－－－－－－－－－－－转出币－－－－－－－－－－－－－－－－－－－－－－－－－*/
+.turnin_con .qrcode{width: 3.36rem;height: 3.36rem; margin: 1.2rem auto 1rem;}
+.turnin_con textarea{font-size: .45rem;resize: none;width:100%; height: .6rem; text-align: center; border: none; background: none;}
+.turnin_con span{font-size: .39rem;border: 1px solid #ed4040; height: .98rem; line-height: .98rem; display: block; margin-top: .5rem; border-radius: 3px;}
+.add_bank{margin-top: .8rem;}
+.hui_bg{ height: 1.22rem; line-height: 1.22rem;}
+.bank_box{border-bottom: .3rem solid #f6f6f8;}
+.bank_name{height: 1.3rem; line-height: 1.3rem; border-bottom: 1px solid #f6f6f8; padding-right: .4rem;}
+.bank_box p em{margin-right: .4rem;}
+.bank_box p{display: inline-block;}
+.bank_num{height:1.3rem; line-height: 1.3rem; padding-right: .4rem;}
+/*－－－－－－－－－－－－－－支付宝充值－－－－－－－－－－－－－－－－－－－－－－*/
+.zfb_prompt{height: 1.2rem; line-height: 1.2rem;}
+.zfb_con{ height: 3.73rem; margin: .6rem .4rem; background: url("../images/zfb_bg.png") no-repeat center; background-size: 100%; padding: .5rem;}
+.zfb_con_img{width: 2.66rem; height: 2.66rem; background: #fff; border-radius: 3px; text-align: center; margin-right: .66rem;}
+.zfb_code{width: 2.5rem; height: 2.5rem; margin-top: .08rem;}
+.zfb_con p{width: 5.43rem;color: #fff;}
+.zfb_con p:first-child{margin-top: .2rem;}
+.zfb_nav{border-top: 1px solid #f6f6f8;}
+.zfb_box{border-bottom: 1px solid #f6f6f8; height: 1.3rem; line-height: 1.3rem;}
+.zfb_go{padding:.3rem 0px 0px;  width: 100%; background: #fff; border-top: .6rem solid #f8f8f8;}
+.zfb_go p{font-size: .42rem;}
+.zfb_go span{font-size: .3rem; color: rgba(255,98,38,0.7)}
+/*－－－－－－－－－－－－－－微信充值－－－－－－－－－－－－－－－－－－－－－－*/
+.wx_prompt{height: 1.2rem; line-height: 1.2rem;}
+.wx_con{ height: 3.73rem; margin: .6rem .4rem; background: url("../images/wx_bg.png") no-repeat center; background-size: 100%; padding: .5rem;}
+.wx_con_img{width: 2.66rem; height: 2.66rem; background: #fff; border-radius: 3px; text-align: center; margin-right: .66rem;}
+.wx_code{width: 2.5rem; height: 2.5rem; margin-top: .08rem;}
+.wx_con p{width: 5.43rem;color: #fff;}
+.wx_con p:first-child{margin-top: .2rem;}
+.wx_nav{border-top: 1px solid #f6f6f8;}
+.wx_box{border-bottom: 1px solid #f6f6f8; height: 1.3rem; line-height: 1.3rem;}
+.wx_go{padding:.3rem 0px 0px;  width: 100%; background: #fff; border-top: .6rem solid #f8f8f8;}
+.wx_go p{font-size: .42rem;}
+.wx_go span{font-size: .3rem; color: rgba(255,98,38,0.7)}
+/*－－－－－－－－－－－－－－我的资产－－－－－－－－－－－－－－－－－－－－－－－*/
+.assets_con{width: 100%; height: 5.3rem; background: url("../images/assets_bg.png") no-repeat center; background-size: 100%;}
+.assets_con_top{height: 2.9rem; padding:.54rem .6rem;}
+.assets_con_top .left{width: 1.7rem; height: 1.7rem;}
+.assets_img{width: 1.7rem;height: 1.7rem;}
+.assets_v{width: .5rem;height: .5rem; right: 0px; bottom: 0px;}
+.assets_con_top .right{width: 7.3rem; margin-top: .35rem; color: #fff;}
+.assets_con_bottom{height: 2.44rem;background: rgba(255,255,255,0.1);color: #fff; padding: .2rem .4rem;}
+.assets_con_bottom a:hover{ color: #fff;}
+.assets_con_1{font-size: .3rem;}
+.assets_con_1 span{margin-right: .3rem;}
+.assets_con_2{font-size: .6rem; line-height: .9rem;}
+.assets_con_2 em{font-size: .45rem;}
+.icon_turn180{transform: rotate(180deg);-o-transform: rotate(180deg);-webkit-transform: rotate(180deg);-moz-transform: rotate(180deg);}
+.assets_con_3 span{color: #611111; margin-right: 1rem;}
+.assets_jump{border-bottom: .3rem solid #f6f6f8;}
+.assets_jump li{float: left; width: 50%; height: 2.7rem; padding: .9rem 0px 0px 1.1rem; line-height: .74rem; font-size: .39rem;}
+.assets_jump li img{width: .74rem; height: .74rem; margin-right: .2rem;}
+.jump_bo_r{border-right: 1px solid #f6f6f8;}
+.jump_bo_b{border-bottom: 1px solid #f6f6f8;}
+.user_box{line-height: 1.5rem; font-size: .48rem;}
+.user_box img.user_icon_nav{ margin-top:.48rem;}
+.user_box p{border-bottom: 1px solid #f6f6f8; float: right;display: inline-block; width: 9.4rem; padding-right: .4rem;}
+.user_box .icon_jian{margin-top: .63rem;}
+.user_box:hover{background: #f6f6f8; }
+.user_box a:hover{color:#3f3d4d;}
+.user_box p i{margin-right: .3rem;}
+.quit{border: .4rem solid #f6f6f8; height: 2.3rem; line-height: 1.5rem; font-size: .42rem; width: 100%; background: #fff;}
+.quit:hover{background: #f6f6f8;border: .4rem solid #fff; }
+.icon_quit{width: .56rem; height: .59rem;}
+.quit .icon_quit{margin:.43rem .3rem 0px 3.66rem;}
+
+/*－－－－－－－－－－－借贷－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+.coin{width: .7rem; height: .7rem;}
+.borrow_box{border-bottom: 1px solid #f6f6f8; height: 2.2rem;}
+.borrow_box1{margin: .26rem auto .36rem;}
+.borrow_box1 p{line-height: .7rem; font-size: .39rem; margin-left: .4rem;}
+.borrow_box1 span,.borrow_box1 a{width: 1.2rem; height: .6rem; border: 1px solid #ed4040; color: #ed4040; display: inline-block; text-align: center; border-radius: 3px; margin-left: .4rem; }
+.borrow_box1 span:hover,.borrow_box1 a:hover{ background: #ed4040; color:#fff;}
+.borrow_box1 span.borrow_no:hover{background:none; }
+.borrow_box1 span.borrow_no{border: 1px solid #a0a0ab; color: #a0a0ab;}
+.borrow_box2 span{display: inline-block;width: 40%;}
+.borrow_box2 span em{color: #94949f;}
+.borrow_list span{display: block; float: left; height: .96rem; line-height: .96rem;}
+.borrow_list dl{border-bottom: 1px solid #f6f6f8;}
+.borrow_list dl span{height: 1.2rem; line-height: 1.2rem;}
+/*人民币借贷*/
+.borrow_hk{width:1.5rem;display: block;font-size: .45rem;margin-left: -.5rem;}
+.borrow_btn{height: .58rem; line-height: .56rem; border: 1px solid #ff3b3b; color: #ff3b3b; padding: 0px .2rem; margin-top: .3rem; border-radius: 3px;}
+.borrow_btn:hover{background: #ff3b3b; color: #fff; }
+.borrow_rmb span{ width: 49%; display: inline-block;}
+.form_link_rmb{padding: .2rem 0px .5rem; margin-right: .4rem;}
+/*人民币还款*/
+.form_repay{text-align: left;}
+.form_repay span{ width: 49%; display: inline-block;}
+/*人民币借贷*/
+.list_repay_con li:first-child{ margin-right: 2rem}
+.repay_box{border-bottom: .3rem solid #f6f6f8;}
+.repay_box1{border-bottom: 1px solid #f6f6f8; height:1.7rem; padding: .3rem .4rem 0px 0px;}
+.repay_box1 p{font-size: .45rem; line-height: .7rem;}
+.repay_box1 a{width: 1.5rem; height: .7rem; line-height: .7rem; margin-top: .15rem; font-size: .42rem; color: #ed4040; border: 1px solid #ed4040; border-radius: 3px; display: inline-block; text-align: center;}
+.repay_box1 a:hover{background: #ff3b3b; color: #fff;}
+.repay_box1 span{font-size: .45rem; line-height: 1rem;}
+.repay_box2{padding: .4rem 0px;}
+.repay_box2 li{width: 49%; float: left; line-height: .72rem;}
+.repay_box2 li span{font-size: .4rem;color: #3f3d4d;}
+/*－－－－－－－－－－设置－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+/*身份认证成功*/
+.real_succ{padding: 1.2rem 0px 1rem;}
+.real_succ img{width: 2.1rem; height: 2.1rem;}
+.real_succ p{font-size: .5rem; margin-top: .45rem; line-height: .8rem; letter-spacing: 1px;}
+.real_succ span{font-size: .42rem; line-height: .6rem;}
+.real_list{border-top: 1px solid #f6f6f8; padding-top: .85rem;}
+.real_box{width: 6.66rem; margin: 0px auto; height: .82rem; line-height: .82rem; font-size: .42rem; color: #a0a0ab; letter-spacing: 1px;}
+.real_box span{color: #21212b;}
+.real_point{margin-top: 1rem;}
+.real_point p{width: 8.78rem; text-align: left;}
+.real_point img{margin-top: .02rem;}
+.bindtel_list{width: 4.75rem; border-top: 0px; margin:0px auto; padding-top: 0rem;}
+.bindtel_jb{ font-size: .45rem; width: 2rem; margin-left: -1.2rem;}
+
+/*－－－－－－－－－－我的－－－－－－－－－－－－－－－－－－－－－－－－－－－－－*/
+/*比特币钱包*/
+.wallet_box{border-top: .3rem solid #f6f6f8;}
+.wallet_box1{height: 1.2rem; line-height: 1.2rem; padding-right: .4rem; font-size: .45rem; border-bottom: 1px solid #f6f6f8; box-sizing:content-box;}
+.wallet_box2{height: 1.6rem; line-height: 1.6rem; font-size: .4rem; padding-right: .4rem}
+.prompt_g{font-size: .27rem; color: #fff;padding:0px .2rem;height: .48rem; line-height: .48rem; display: inline-block; background: #25cb7b; border-radius:40px; margin:.35rem 0px 0px .4rem;}
+/*银行卡账户*/
+.bank_card{height: .7rem;}
+.bankcard_box1{height: 1.3rem; line-height: 1.3rem;}
+/*成交纪录*/
+.marget_mytrad{padding: .3rem 0px;position: fixed;border-bottom: .3rem solid #f6f6f8; height: 1.88rem; background: #fff; z-index: 100;}
+.mytrad_tab{background:#f6f6f8;padding:.3rem .4rem 0px;}
+.mytrad_tab a{ display:block; width: 48%; height: .9rem; line-height: .9rem; background: #fff; font-size: .4rem; text-align: center;}
+.mytrad_con{padding-bottom: 1.6rem;}
+.mytrab_con{height: 1.2rem; overflow: hidden;}
+.mytrab_con_list{height: 2rem;overflow-x: auto;overflow-y: hidden;}
+.list_mytrad_con{overflow-x: auto; width:13.6rem!important;}
+.list_mytrad_con li{width:2.7rem; text-align: center;}
+.list_mytrad_con li a{display: inline-block; height: 1.19rem}
+.list_mytrad_con li.hover{border-bottom: none;}
+.list_mytrad_con li.hover a{border-bottom: 2px solid #ed4040;}
+.mytrad_box1{height: 1.54rem;}
+.icon_buy{width: .76rem; height: .76rem; margin-top: .39rem;}
+.mytrad_box_state{margin-left: .3rem; line-height: .58rem;padding-top: .3rem;}
+.mytrad_box_state span{font-size: .45rem;}
+.mytrad_box_state p{font-size: .3rem; line-height: .5rem;}
+.mytrad_box2{height: 2.15rem; padding-top: .4rem;}
+.mytrad_box2 li{width: 37%; float: left;}
+.mytrad_box2 li:last-child{width: 26%;}
+.mytrad_box2 li span,.mytrad_box2 li i{display: block; line-height: .7rem;}
+/*委托管理*/
+.entrust_btn{padding:0px .15rem;height: .72rem; margin-top: .42rem; line-height: .72rem; border: 1px solid #ed4040;color:#ed4040; font-size: .42rem; text-align: center; border-radius: 3px;}
+.entrust_btn:hover{background: #ed4040; color: #fff;}
+.myrecharge_box2 ul{width: 9.66rem; float: left;}
+.myrecharge_box2 .icon_jian{margin-top: .5rem;}
+.myrecharge_box2 a:hover{color: #3f3d4d;}
+/*人民币提现记录*/
+.withdraw_box1{height: 1.2rem; padding: .28rem .4rem .26rem 0px;line-height: .65rem;}
+.withdraw_box1_l span{ font-size: .45rem; }
+.withdraw_box1_l p{font-size: .36rem;}
+.withdraw_box1 span.right{line-height: 1.2rem;}
+.withdraw_box1 span.entrust_btn{margin-top: .22rem; line-height: .72rem;}
+.withdraw_box2 li{width: 50%; float: left; font-size: .39rem;}
+.show_wen{position: absolute; display: none; right:.3rem; top: .4rem; height: 1rem; line-height: 1rem; padding: 0px .2rem 0px 1rem; font-size: .39rem; color: #fff; letter-spacing: 1px; background: rgba(0,0,0,0.7); border-radius: 30px;}
+/*红包领取记录*/
+.red_box1{font-size: .4rem; height: 1.32rem; line-height: 1.32rem;}
+.red_box1 span{width: 2.5rem; display:block; ;line-height: 1.29rem;}
+.red_box1 span i{font-size: .3rem; margin-left: .1rem;}
+/*转出比特币记录*/
+.myturnout_box1 .entrust_btn{margin-top: .22rem;}
+.myturnout_box2{height:auto; line-height: .7rem; padding-top:.4rem; font-size: .39rem; padding-bottom: .3rem;}
+.myturnout_box1 .show_wen{top: .1rem;}
+.myturnout_box2_con2 i{display: block; width: 2.1rem;}
+.myturnout_box2_con2 span{display:block; width: 7.6rem; float: left; word-wrap:break-word;}
+/*资产明细*/
+.myassets_con{height: 3rem; padding-top: .75rem;}
+.myassets_con1{font-size: .42rem; color: #fff;}
+.myassets_con1 span{font-size: .7rem; margin-left: .2rem;}
+.myassets_con1 span i{font-size: .45rem;}
+.myassets_con2{ font-size: .39rem; padding-top: .45rem;color: #611111;}
+.myassets_con2 span{display:inline-block; width: 49%;}
+.myassets_box{border-bottom: .3rem solid #f6f6f8;}
+.myassets_box .borrow_box1{border-bottom: 1px solid #f6f6f8; padding: .22rem .4rem .22rem 0px; margin: 0px;}
+.myassets_box .borrow_box2{line-height: .7rem; padding: .3rem .4rem 0rem 0px;}
+.myassets_box .borrow_box2:last-child{line-height: .7rem; padding: 0rem .4rem .3rem 0px;}
+.mytrans{width: 100%; height: 5rem; background: url("../images/mytrans_bg.png") no-repeat center; background-size: 100%; margin: .65rem auto; padding: .8rem 0px 0px .4rem;}
+.mytrans p{line-height: 1.06rem; color: #611111; letter-spacing:.5px;}
+.add_btn{width: 1.25rem; height: .72rem; border-radius: 20px; background: #ed4040; position: relative;}
+.add_btn_cir{width: .66rem; height: .66rem; background: #fff; border-radius: 50%; display: block; position: absolute; left: .03rem; top: .03rem;}
+
+
+/*公告列表*/
+.notice_box1{padding: .45rem .2rem .3rem 0px; line-height: .55rem;}
+.notice_box1 span{ font-size: .45rem; display: inline-block; width: 9.6rem; height: .55rem; overflow: hidden;}
+.notice_box1 p{ font-size: .36rem;}
+.notice_box1 .icon_jian{margin-top: .5rem;}
+.notice_box2{height: auto; line-height: .6rem; padding: .4rem .4rem .4rem 0px;}
+.notice_show_title{font-size: .45rem; padding: .6rem 0px .3rem;}
+.notice_con{font-size: .39rem;}
+.notice_con p{line-height: .7rem; margin-bottom: .5rem; color: #595666;}
+.notice_con p img{width: 100%;}
+.notice_con h2{ font-size: .46rem; line-height: .9rem; padding-top: .3rem;}
+/*分享*/
+.show_share{height: 5.25rem; background: #fff; border-top: 1px solid #f6f6f8;}
+.show_share ul{padding: 1.06rem .5rem .76rem;}
+.show_share ul li{width: 2.4rem; float: left;}
+.icon_show_share{width: 1.34rem; height: 1.34rem;}
+.show_share ul li p{line-height: .8rem; font-size: .3rem;}
+.show_share_close{border-top: 1px solid #f6f6f8; line-height: 1.2rem; font-size: .45rem;}
+.show_share_close a{display: block; height: 1.2rem;}
+.red_icon{width: 1.16rem; height: 1.16rem;}
+
+/*弹窗*/
+.show_deposit{ width: 8.8rem; height: auto; background: #fff; border-radius: 20px; padding:2rem 0px .8rem;}
+.show_deposit_top{width: 3.52rem; height: 2.5rem; background: url("../images/dialog_top_bg.png") no-repeat center; background-size: 100% auto; padding-top: .55rem;top: -1.2rem; left:2.64rem; }
+.dialog_icon{ width: 1.29rem; height: 1.29rem;}
+.show_title{font-size: .7rem;}
+.share_close{width:3.2rem; height: .95rem; line-height: .95rem; font-size: .42rem; background: #ed4040; color: #fff; text-align: center; border-radius: 20px; margin: .8rem auto .1rem; display: block;}
+.giftcard_icon{width: 1.42rem; height: 1.2rem;}
+.show_p{font-size: .42rem; color: #696777; width: 6.75rem; margin:.5rem auto 0px; line-height: .7rem;}
+.show_yzm{padding-top: .9rem; padding-bottom: 0px;}
+.show_yzm h2{font-size: .42rem; margin-bottom: .43rem;}
+.dialog_box{width:7rem;}
+.dialog_box input{width: 3.58rem; height: .76rem; border: 1px solid #595666; padding-left: .1rem;}
+.dialog_box a{display: block;}
+.verify_img2{width:2.84rem; height: .75rem;}
+.dialog_yzm_btn{height: 1.34rem; border-top: 1px solid #9f9faf; margin-top: .8rem;}
+.dialog_yzm_btn a{display: block; width: 50%; float: left; line-height: 1.34rem; font-size: .42rem;}
+.dialog_yzm_btn a:first-child{border-right: 1px solid #9f9faf;}
+.show_area{padding-top: .4rem; padding-bottom: 0px; border-radius: 0px;}
+.show_area h2{font-size: .42rem; padding-left: .4rem; text-align: left;}
+.area_all{width:100%;overflow:hidden;height: 4rem; margin: .4rem 0px; line-height: .8rem;}
+.area_btn{height: .9rem; line-height: .9rem; background: #ed4040; color: #fff;}
+.area_all_line{width:100%;height: .8rem; top: 1.5rem;border-top: 1px solid #f6f6f8;border-bottom: 1px solid #f6f6f8; position: absolute;}
+/*图标*/
+.icon_list{width: .53rem; height: .53rem;}
+.icon_nav{width: .72rem;  display: block; padding-left: .1rem;}
+.icon_set{width: .6rem;height: .6rem;}
+.icon_del{width: .54rem; height: .52rem;}
+.icon_tan{width: .45rem; height: .45rem; margin-top: -.1rem; margin-right:.1rem;}
+.icon_select{width: .4rem; height: .4rem;}
+.icon_cha{width: .45rem; height: .45rem; margin: .4rem;}
+.icon_arrow{width:.4rem; height: .4rem; margin-left: .2rem; margin-top: .08rem; display: inline-block;}
+.icon_arrow_b{ background: url("../images/icon_arrow_b.png") no-repeat center; background-size: .4rem;}
+.icon_arrow_t{ background: url("../images/icon_arrow_t.png") no-repeat center; background-size: .4rem;}
+.icon_notice{width:.48rem; height:.48rem; background-position: 0px -22px; background-size: 200px auto; float: left;}
+.user_icon_nav{width: .58rem; height: .58rem;}
+.icon_jian{width: .34rem; height: .22rem;transform: rotate(-90deg);}
+.icon_succ{width: .42rem; height: .42rem; margin-right: .2rem; margin-top: .5rem;}
+.icon_circha{width: .46rem; height: .46rem; right: 0px; position: absolute; top: .15rem;}
+.icon_wen{width: .45rem; height: .45rem; margin-left: .2rem;}
+.icon_wen_white{width: .6rem; height: .6rem; position: absolute; left: .2rem; top: .2rem;}
+.icon_share{width: .56rem; height: .56rem;}
+.icon_rnav{width: .56rem; height: .56rem;}
+.icon_left{width: .51rem; height: .51rem;}
+.eyes_box{display: inline-block; float: right;}
+.icon_eye{width: .5rem; height: .5rem; background: url("../images/login_icon_eye_open.png") no-repeat center; margin-top: .12rem; background-size: 100% auto; display: inline-block;}
+.icon_eye.open{background: url("../images/login_icon_eye.png") no-repeat center; background-size: 100% auto;}
+.random{margin-left: .1rem;}
+/*右侧导航*/
+.menu {background: #21212b;height: 900px;width: 240px;right: 0;top: 0;position: fixed;visibility: hidden;z-index: -10;-webkit-transition: visibility .5s linear .2s;}
+.menu a {display: block;color: #fff;text-decoration: none;position: relative;z-index: 11;font-size: .42rem;padding-left:60px;margin: .1rem 0px;height: 1.33rem;line-height: 1.33rem;}
+.menu a img{margin-right:10px; float: left; margin-top: .38rem;}
+.menu a.backBtn{height: 1.33rem; line-height: 1.33rem; text-align: right; margin:0px 0px .4rem;background-color: #ed4040;}
+.menu a:hover, .menu a:active {background-color: #ed4040;}
+.push { -webkit-transition: all 0.3s ease;-moz-transition: all 0.3s ease;transition: all 0.3s ease;}
+.menu.gbzp {visibility: visible;z-index: 205;-webkit-transition: z-index .4s linear .2s;}
+#gb-main.gbzp {-webkit-transform: translateX(-240px); min-width: 320px;}
+.head.gbzp { -webkit-transform: translateX(-240px);min-width: 320px;}
+#gb-main {-webkit-transform: translateX(0);-webkit-transition: .2s -webkit-transform ease-in-out;z-index: 222;box-sizing: border-box;min-height: 100%;position: relative;}
+
+.code_input{border: none; font-size:.36rem; padding: 0px; width: auto; width: 2rem; text-align: right;}
+
+.tip{ color: #ff3b3b; font-size: .3rem; margin-top: .2rem;}
+.list_none{text-align: center; font-size: .4rem; padding:.4rem 0px;}
+.bank_name i,.bank_num i{display: inline-block; width: 7.4rem; height: 1.3rem; overflow: hidden;}
+.bank_name em{display: inline-block;}
+
+/*分页*/
+.pages{position: fixed; bottom:.3rem; left: 50%; margin-left:-1.6rem;}
+.pages a{display: none; float: left;}
+.pages a:first-child,.pages a:last-child{display: inline-block; width:1.2rem; height: 1.2rem; border-radius: 3px; line-height: 1rem; font-size: 1rem; color:#fff; background:rgba(0,0,0,0.5); text-align: center;}
+.pages a:last-child{ margin-left: .5rem;}
+
+.record_no{font-size: .45rem; padding-top: .5rem;}
+.bindemail_list{width: auto; text-align: center;}
+.bindemail_list .real_box{width: auto;}
+.form_arrival{font-size: .4rem;}
+.select_wallet_jian{ display: inline-block; width: .7rem; height: .4rem; margin-top:.3rem;background: url("../images/icon_jian.png") no-repeat center; background-size:.28rem .16rem;}
+.select_wallet{width: 100%; height: auto; background: #f5f5f5; left: 0px; top: 2.6rem; z-index: 100; display: none;}
+.select_wallet p{ border-bottom: 1px solid #fff; line-height: 1.2rem; padding-left: .4rem;}
+.coinout_ts{line-height: .6rem; display: inline-block;}
+
+input[type="checkbox"] {
+	-webkit-appearance: none;
+	width: .5rem;
+	height: .5rem;
+	border-radius: 50%;
+	vertical-align: middle;
+	background:url("../images/select_no.png") no-repeat center;
+	background-size: 100%;
+}
+input[type="checkbox"]:checked {
+	background:url("../images/select_ok.png") no-repeat center;
+	background-size: 100%;
+}
+
+/*邀请页面*/
+.invite_1{margin-top: 1rem; background: #191230; border: 1px solid #17ffd7; border-radius: 8px; padding: 1rem .38rem .3rem;}
+.invite_1_t{width: 7.2rem; height: 1rem; background: url("../images/invite_1_tbg.png") no-repeat center; background-size: 100%; top: -.44rem; left: 50%; margin-left: -3.6rem; padding-top: .15rem;}
+.invite_1_t img{height: .36rem; }
+.invite_1_con h2{font-size: .45rem;}
+.invite_1_con p{font-size: .3rem;padding: .2rem 0px .5rem .4rem;}
+.invite_1_btn{ margin-top: 1rem; padding-bottom: 1rem;}
+.invite_1_btn img{width: 4.32rem;}
+
+.invite_bg{background: #180e1c;}
+.input_bian{width: 100%; height: 1.3rem; background: #132024; border-radius: 3px; padding-left: 1rem; border: none; color: #fff;}
+.reg_box.reg_btn{height: 1.75rem; margin-bottom: .3rem;}
+.reg_box{width: 100%; height: 1.3rem; line-height: 1.3rem; margin-bottom: .35rem;}
+.reg_icon{ left: .25rem;}
+.reg_icon img{width: .46rem;}
+.reg_box .icon_eye{ position: absolute; right: .2rem; top: .2rem;}
+.btn_green{background: #17ffd7; color: #1f174c; margin-top: .45rem; height: 1.3rem; line-height: 1.3rem; font-size: .45rem;}
+.reg_link{margin: .2rem 0px .4rem 0px; font-size: .36rem;}
+.reg_box .icon_circha{right: .1rem; top: .42rem;}
+.reg_box_eye .icon_circha{ right: .9rem;}
+.invite_succ{margin-top: 1.2rem; padding-bottom: .3rem;}
+.invite_succ a{display: block; border-radius: 3px; text-align: center;}
+.btn_greens{background: #143d3c; color: #fff;}
+.invite_code{ width: 4.2rem; height: 4.2rem; top: 7.88rem; left: 50%; margin-left: -2.1rem;}
+.invite_code img{width: 4.2rem;height: 4.2rem;}

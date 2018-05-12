@@ -1,0 +1,36 @@
+<div class="coin_menu">
+	<div class="coin_menu_box">
+		<ul>
+			<li id="finance_index"><i class="coin_menu_op_0_1"></i><a href="/finance/">财务中心</a></li>
+		</ul>
+	</div>
+	<div class="coin_menu_box">
+		<ul>
+			<li id="finance_mycz"><i class="coin_menu_op_18_1"></i><a href="/finance/mycz.html">人民币充值</a></li>
+			<li id="finance_mytx"><i class="coin_menu_op_2_1"></i><a href="/finance/mytx.html">人民币提现</a></li>
+		</ul>
+	</div>
+	<div class="coin_menu_box">
+		<ul>
+			<li id="finance_myzr"><i class="coin_menu_op_4_1"></i><a href="/finance/myzr.html">转入虚拟币</a></li>
+			<li id="finance_myzc"><i class="coin_menu_op_5_1"></i><a href="/finance/myzc.html">转出虚拟币</a></li>
+		</ul>
+	</div>
+	<div class="coin_menu_box">
+		<ul>
+			<li id="finance_mywt"><i class="coin_menu_op_6_1"></i><a href="/finance/mywt.html">委托管理</a></li>
+			<li id="finance_mycj"><i class="coin_menu_op_7_1"></i><a href="/finance/mycj.html">成交查询</a></li>
+		</ul>
+	</div>
+	<div class="coin_menu_box">
+		<ul>
+            <li id="finance_mytj"><i class="coin_menu_op_13_1"></i><a href="/finance/mytj.html">推荐用户</a></li>
+			<li id="finance_mywd"><i class="coin_menu_op_16_1"></i><a href="/finance/mywd.html">我的推荐</a></li>
+			<li id="finance_myjp"><i class="coin_menu_op_19_1"></i><a href="/finance/myjp.html">我的奖励</a></li>
+		</ul>
+	</div>
+</div>
+<script>
+	//顶部菜单高亮
+	$('.coin_menu_box a').hover(function(){var str=str_1=$(this).parent().find('i').attr('class');if(str.length>15)str=str.substring(0,str.length-2);$(this).parent().find('i').attr('class',str)},function(){$(this).parent().find('i').attr('class',str_1)});
+</script>
